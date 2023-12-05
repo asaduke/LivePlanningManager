@@ -56,3 +56,6 @@
 *管理ユーザー機能
 *SNS共有機能
 *PWA機能
+
+## 画面遷移図
+[画面遷移図_LivePlanningManager](https://www.figma.com/file/CiZwj9zjqgAh3L7pqH49ap/LivePlanningManager?type=design&node-id=0%3A1&mode=design&t=KH6s7UTkhlwv2xyj-1)
