@@ -23,9 +23,8 @@
   *過去のライブ参加履歴が保存され、再度参加する際や似たようなライブに参加するときに役立ちます。
 5.持ち物リストを投稿：
   *作成した持ち物リストを任意で投稿できます。匿名での投稿も可能です。
-6.ゲストユーザー：
-  *持ち物リスト投稿一覧ページを閲覧できます。
-
+6.持ち物リスト投稿一覧ページの閲覧：
+  *未ログインでも持ち物リスト投稿一覧ページを閲覧できます。
 
 ## ユーザーの獲得について
 *ライブ仲間やライブ好きな友人に提案する：アプリの魅力や便利さを具体的に説明し、口コミで共有します。そうすることで、安心感や信頼性を提供し、新規ユーザーの獲得を促進します。
@@ -39,17 +38,17 @@
 
 ## 実装を予定している機能
 ### MVP
-*ユーザー登録, 退会機能
+*ユーザー登録機能
 *ログイン, ログアウト機能
 *パスワード再設定機能
 *ライブ登録機能
+*持ち物リスト一覧機能
 *LINE通知機能(LINE Messaging API)
 *テスト機能(RSpec)
 
 ### その後の機能
 *ユーザープロフィール機能
 *持ち物リスト投稿機能
-*ゲストユーザー機能
 *タグ機能
 *お気に入り機能
 *マルチ検索, オートコンプリート機能
@@ -58,4 +57,4 @@
 *PWA機能
 
 ## 画面遷移図
-[画面遷移図_LivePlanningManager](https://www.figma.com/file/CiZwj9zjqgAh3L7pqH49ap/LivePlanningManager?type=design&node-id=0%3A1&mode=design&t=KH6s7UTkhlwv2xyj-1)
+[画面遷移図_LivePlanningManager](https://www.figma.com/file/CiZwj9zjqgAh3L7pqH49ap/LivePlanningManager?type=design&node-id=0%3A1&mode=design&t=o6Ubn2nYSTTa9klm-1)
