@@ -67,3 +67,7 @@
 ## 画面遷移図
 
 [画面遷移図_LivePlanningManager](https://www.figma.com/file/CiZwj9zjqgAh3L7pqH49ap/LivePlanningManager?type=design&node-id=0%3A1&mode=design&t=o6Ubn2nYSTTa9klm-1)
+
+## ER図
+
+[![Image from Gyazo](https://i.gyazo.com/61a59ce7c84a4c0042598ecba7f56eb8.png)](https://gyazo.com/61a59ce7c84a4c0042598ecba7f56eb8)
