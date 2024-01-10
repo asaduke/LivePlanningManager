@@ -40,5 +40,8 @@ module LivePlanningManager
       g.helper false
       g.test_framework false
     end
+
+    # デプロイするサービスのホストを追加
+    config.hosts << 'xxx.onrender.com'
   end
 end
