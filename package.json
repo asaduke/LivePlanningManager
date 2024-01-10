@@ -1,0 +1,24 @@
+{
+  "name": "LivePlanningManager",
+  "version": "1.0.0",
+  "description": "## サービス概要",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asaduke/LivePlanningManager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asaduke/LivePlanningManager/issues"
+  },
+  "homepage": "https://github.com/asaduke/LivePlanningManager#readme"
+}
