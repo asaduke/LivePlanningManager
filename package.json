@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/asaduke/LivePlanningManager/issues"
   },
-  "homepage": "https://github.com/asaduke/LivePlanningManager#readme"
+  "homepage": "https://github.com/asaduke/LivePlanningManager#readme",
+  "dependencies": {
+    "esbuild": "^0.19.11"
+  }
 }
