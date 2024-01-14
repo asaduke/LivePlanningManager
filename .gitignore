@@ -42,3 +42,6 @@
 # Ignore .DS_Store
 /.DS_store
 app/.DS_store
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
