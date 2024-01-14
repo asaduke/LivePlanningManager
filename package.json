@@ -6,7 +6,9 @@
   "directories": {
     "lib": "lib"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "daisyui": "^4.6.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "esbuild app/javascript/**/*.js --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
