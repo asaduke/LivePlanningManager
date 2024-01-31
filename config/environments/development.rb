@@ -42,10 +42,13 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # 送信方法
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :letter_opener_web
 
   # メールを実際に送信するかどうか
   config.action_mailer.perform_deliveries = true
+
+  # ActionMailerがメールを生成する際に使用するデフォルトのURLオプション
+  config.action_mailer.default_url_options = Settings.default_url_options.to_h
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
