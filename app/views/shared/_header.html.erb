@@ -10,7 +10,7 @@
       <div tabindex="0" role="button" class="btn m-1 font-light text-xl text-gray-600 bg-yellow-100 hover:ring-2 ring-yellow-100 hover:bg-yellow-200">メニュー</div>
       <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-64">
         <% if current_user %>
-          <li><%= link_to "プロフィール", '#', class: "text-gray-600 btn bg-red-300 text-xl font-light hover:ring-2 ring-red-300 hover:bg-red-400" %></li>
+          <li><%= link_to "プロフィール", '#', class: "text-gray-600 btn bg-pink-300 text-xl font-light hover:ring-2 ring-pink-300 hover:bg-pink-400" %></li>
           <li><%= link_to "ログアウト", logout_path, data: { turbo_method: :delete }, class: "text-gray-600 btn bg-blue-300 text-xl font-light hover:ring-2 ring-blue-300 hover:bg-blue-400" %></li>
         <% else %>
           <li><%= link_to "みんなの持ち物リスト", '#', class: "text-gray-600 btn bg-red-300 text-xl font-light hover:ring-2 ring-red-300 hover:bg-red-400" %></li>
@@ -23,7 +23,7 @@
   <!-- 画面が大きい時は表示、小さい時は非表示 -->
   <div class="hidden lg:flex lg:flex-none items-center m-1">
     <% if current_user %>
-      <%= link_to "プロフィール", '#', class: "text-gray-600 btn bg-red-300 text-xl font-light hover:ring-2 ring-red-300 hover:bg-red-400" %>
+      <%= link_to "プロフィール", '#', class: "text-gray-600 btn bg-pink-300 text-xl font-light hover:ring-2 ring-pink-300 hover:bg-pink-400" %>
       <%= link_to "ログアウト", logout_path, data: { turbo_method: :delete }, class: "text-gray-600 btn bg-blue-300 text-xl font-light hover:ring-2 ring-blue-300 hover:bg-blue-400" %>
     <% else %>
       <%= link_to "みんなの持ち物リスト", '#', class: "text-gray-600 btn bg-red-300 text-xl font-light hover:ring-2 ring-red-300 hover:bg-red-400" %>

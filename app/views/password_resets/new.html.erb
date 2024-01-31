@@ -1,0 +1,18 @@
+<div class="bg-indigo-50 mx-auto px-4 py-16 min-h-screen">
+  <div class="flex justify-center">
+    <div class="shadow-lg bg-blue-50 rounded-md md:w-1/2 lg:w-3/5 flex fustify-center items-center flex-col">
+      <h1 class="font-light text-gray-600 text-3xl mt-8 text-center">パスワードリセット申請</h1>
+
+      <%= form_with url: password_resets_path, class: "space-y-2 mt-8 mb-16 mx-24 md:w-3/5 lg:w-2/5" do |f| %>
+        <div class="form-group">
+          <%= f.label :email %><br>
+          <%= f.email_field :email, class: "mt-1 p-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+        </div>
+
+        <div class="flex justify-center items-center">
+          <%= f.submit '申請', class: "btn bg-green-400 text-2xl font-light text-gray-600 mt-12 hover:ring-2 ring-green-400 hover:bg-green-500" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
