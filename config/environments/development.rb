@@ -41,6 +41,12 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # 送信方法
+  config.action_mailer.delivery_method = :letter_opener
+
+  # メールを実際に送信するかどうか
+  config.action_mailer.perform_deliveries = true
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
