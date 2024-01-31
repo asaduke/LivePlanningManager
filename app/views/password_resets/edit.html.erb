@@ -7,17 +7,17 @@
         <%= render 'shared/error_messages', object: f.object %>
 
         <div class="form-group">
-      	  <%= f.label :email %><br>
+      	  <%= f.label :email, class: "mt-1 p-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %><br>
           <%= @user.email %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password %><br>
+          <%= f.label :password, class: "mt-1 p-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %><br>
           <%= f.password_field :password %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password_confirmation %><br>
+          <%= f.label :password_confirmation, class: "mt-1 p-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %><br>
           <%= f.password_field :password_confirmation %>
         </div>
 
