@@ -1,15 +1,30 @@
-<h3>パスワード再設定</h3>
+<div class="bg-indigo-50 mx-auto px-4 py-16 min-h-screen">
+  <div class="flex justify-center">
+    <div class="shadow-lg bg-blue-50 rounded-md md:w-1/2 lg:w-3/5 flex fustify-center items-center flex-col">
+      <h1 class="font-light text-gray-600 text-3xl mt-8 text-center">パスワード再設定</h1>
 
-<%= form_with model: @user, url: password_reset_path(@token) do |f| %>
-  <%= render 'shared/error_message', object: f.object %>
-	<%= f.label :email %>
-  <%= @user.email %>
+      <%= form_with model: @user, url: password_reset_path(@token), class: "space-y-2 mt-8 mb-16 mx-24 md:w-3/5 lg:w-2/5" do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+        <div class="form-group">
+      	  <%= f.label :email %><br>
+          <%= @user.email %>
+        </div>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+        <div class="form-group">
+          <%= f.label :password %><br>
+          <%= f.password_field :password %>
+        </div>
 
-  <%= f.submit 'リセット' %>
-<% end %>
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br>
+          <%= f.password_field :password_confirmation %>
+        </div>
+
+        <div class="flex justify-center items-center">
+          <%= f.submit 'リセット', class: "btn bg-green-400 text-2xl font-light text-gray-600 mt-12 hover:ring-2 ring-green-400 hover:bg-green-500" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
