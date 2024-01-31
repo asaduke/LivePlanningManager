@@ -43,5 +43,8 @@ module LivePlanningManager
 
     # デプロイするサービスのホストを追加
     config.hosts << 'xxx.onrender.com'
+
+    # 日本語化
+    config.i18n.default_locale = :ja
   end
 end
