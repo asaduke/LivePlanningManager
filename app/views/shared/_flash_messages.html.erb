@@ -1,12 +1,12 @@
 <% flash.each do |type, message| %>
   <% case type %>
   <% when 'success' %>
-    <div class="rounded-md bg-green-100 p-4 text-xl text-green-500 fixed top-15 w-full"><%= message %></div>
+    <div class="rounded-md bg-green-100 p-4 text-sm text-green-500 fixed top-15 w-full"><%= message %></div>
   <% when 'error' %>
-    <div class="rounded-md bg-red-100 p-4 text-xl text-red-500 fixed top-15 w-full"><%= message %></div>
+    <div class="rounded-md bg-red-100 p-4 text-base text-red-500 fixed top-15 w-full"><%= message %></div>
   <% when 'info' %>
-    <div class="rounded-md bg-primary-100 p-4 text-xl text-primary-500 fixed top-15 w-full"><%= message %></div>
+    <div class="rounded-md bg-primary-100 p-4 text-sm text-primary-500 fixed top-15 w-full"><%= message %></div>
   <% when 'warning' %>
-    <div class="rounded-md bg-yellow-100 p-4 text-xl text-yellow-500 fixed top-15 w-full"><%= message %></div>
+    <div class="rounded-md bg-yellow-100 p-4 text-sm text-yellow-500 fixed top-15 w-full"><%= message %></div>
   <% end %>
 <% end %>
