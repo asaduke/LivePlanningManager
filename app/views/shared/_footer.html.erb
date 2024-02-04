@@ -1,9 +1,9 @@
 <footer class="bg-blue-100 h-16">
   <% if current_user %>
     <div class="btm-nav">
-      <%=link_to 'ホーム', '#', class: "bg-sky-200 text-sky-600" %>
+      <%=link_to 'ホーム', lives_path, class: "bg-sky-200 text-sky-600" %>
       <%=link_to 'みんなの持ち物リスト', '#', class: "bg-teal-200 text-teal-600" %>
-      <%=link_to '設定', '#', class: "bg-emerald-200 text-emerald-600" %>
+      <%=link_to 'その他', '#', class: "bg-emerald-200 text-emerald-600" %>
     </div>
   <% else %>
     <nav class="flex flex-wrap justify-center pt-5 ml-4 gap-x-4 md:justify-start md:gap-6">
