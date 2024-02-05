@@ -16,7 +16,7 @@ class LivesController < ApplicationController
 
     if @live.save
       flash[:success] = "作成しました"
-      redirest_to edit_live_path
+      redirect_to edit_life_path
     else
       flash.now[:error] = "作成できませんでした"
       render :new, status: :unprocessable_entity
