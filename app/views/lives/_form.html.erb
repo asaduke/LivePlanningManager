@@ -1,0 +1,35 @@
+<%= form_with model: @live, local: true, class: "space-y-2 mt-8 mb-16 mx-16 w-3/4 md:w-3/5 lg:w-3/5" do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "mt-1 py-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :place %><br>
+    <%= f.text_field :place, class: "mt-1 py-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date %><br>
+    <%= f.date_field :date, class: "mt-1 py-2 rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :open_time %>
+    <%= f.time_field :open_time, class: "mt-8 py-2 rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+
+    <%= f.label :start_time %>
+    <%= f.time_field :start_time, class: "mt-8 py-2 rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :departure_time %>
+    <%= f.time_field :departure_time, class: "mt-8 py-2 rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+  </div>
+
+  <div class="flex justify-center items-center">
+    <%= f.submit '登録', class: "text-gray-600 btn bg-green-300 text-green-700 text-xl font-light mt-12 hover:ring-2 ring-green-300 hover:bg-green-400" %>
+  </div>
+<% end %>
