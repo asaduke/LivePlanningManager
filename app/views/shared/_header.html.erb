@@ -12,16 +12,17 @@
 
   <!-- メニュー -->
   <% if current_user %>
+    <%= link_to 'ライブ登録', new_life_path, class: "btn bg-yellow-100 text-yellow-500 text-xl font-light hover:ring-2 ring-yellow-100 hover:bg-yellow-200" %>
     <%= link_to "ログアウト", logout_path, data: { turbo_method: :delete }, class: "text-gray-600 btn bg-neutral-200 text-neutral-500 text-xl font-light hover:ring-2 ring-neutral-200 hover:bg-neutral-300" %>
   <% else %>
     <!-- 画面が小さい時は表示、大きい時は非表示 -->
     <div class="lg:hidden">
       <div class="dropdown dropdown-bottom dropdown-end">
-        <div tabindex="0" role="button" class="btn m-1 font-light text-xl text-gray-600 bg-yellow-100 text-yellow-700 hover:ring-2 ring-yellow-100 hover:bg-yellow-200">メニュー</div>
+        <div tabindex="0" role="button" class="btn m-1 font-light text-xl bg-yellow-100 text-yellow-700 hover:ring-2 ring-yellow-100 hover:bg-yellow-200">メニュー</div>
         <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-64">
-          <li><%= link_to "みんなの持ち物リスト", '#', class: "text-gray-600 btn bg-teal-200 text-teal-600 text-xl font-light hover:ring-2 ring-teal-200 hover:bg-teal-300" %></li>
-          <li><%= link_to "ログイン", login_path, class: "text-gray-600 btn bg-sky-200 text-sky-600 text-xl font-light hover:ring-2 ring-sky-200 hover:bg-sky-300" %></li>
-          <li><%= link_to "新規登録", new_user_path, class: "text-gray-600 btn bg-green-300 text-green-700 text-xl font-light hover:ring-2 ring-green-300 hover:bg-green-400" %></li>
+          <li><%= link_to "みんなの持ち物リスト", '#', class: "btn bg-teal-200 text-teal-600 text-xl font-light hover:ring-2 ring-teal-200 hover:bg-teal-300" %></li>
+          <li><%= link_to "ログイン", login_path, class: "btn bg-sky-200 text-sky-600 text-xl font-light hover:ring-2 ring-sky-200 hover:bg-sky-300" %></li>
+          <li><%= link_to "新規登録", new_user_path, class: "btn bg-green-300 text-green-700 text-xl font-light hover:ring-2 ring-green-300 hover:bg-green-400" %></li>
         </ul>
       </div>
     </div>

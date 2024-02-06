@@ -2,7 +2,7 @@ class LivesController < ApplicationController
   before_action :set_live, only: %i[edit update destroy]
 
   def index
-    @lives = Live.all
+    @lives = Live.all.order(date: :desc)
   end
 
   def new
@@ -16,7 +16,7 @@ class LivesController < ApplicationController
 
     if @live.save
       flash[:success] = "作成しました"
-      redirect_to edit_life_path
+      redirect_to lives_path
     else
       flash.now[:error] = "作成できませんでした"
       render :new, status: :unprocessable_entity
