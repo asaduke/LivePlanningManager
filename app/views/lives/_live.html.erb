@@ -1,0 +1,21 @@
+<%= link_to life_path(live), class: "shadow-lg bg-teal-50 rounded-md mb-8 mx-4 w-96" do %>
+  <%= form_with url: lives_path, local: true, class: "text-gray-600" do |f| %>
+    <div class="text-2xl flex justify-center my-2">
+      <%= live.title %>
+    </div>
+
+    <div class="ml-8">
+      <%= f.label :place, t('activerecord.attributes.live.place') %><br>
+      <div class="text-2xl">
+        <%= live.place %>
+      </div>
+    </div>
+
+    <div class="font-light ml-8 my-2">
+      <%= f.label :date, t('activerecord.attributes.live.date') %><br>
+      <div class="text-2xl">
+        <%= live.date %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
