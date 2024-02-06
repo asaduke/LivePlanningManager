@@ -1,0 +1,12 @@
+<div class="bg-sky-50 mx-auto px-4 py-16 min-h-screen">
+  <% if @lives.present? %>
+    <!-- 持ち物リスト一覧 -->
+    <div class="flex flex-wrap justify-center">
+      <%= render @lives %>
+    </div>
+  <% else %>
+    <div class="pt-20 flex justify-center items-center">
+      <%= link_to 'ライブ登録', new_life_path, class: "btn bg-yellow-100 text-yellow-500 text-xl font-light hover:ring-2 ring-yellow-100 hover:bg-yellow-200" %>
+    </div>
+  <% end %>
+</div>

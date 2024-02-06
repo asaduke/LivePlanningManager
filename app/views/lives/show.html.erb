@@ -1,0 +1,52 @@
+<div class="bg-sky-50 mx-auto px-4 py-16 min-h-screen">
+  <div class="flex justify-center">
+    <div class="shadow-lg bg-teal-50 rounded-md w-full md:w-5/6 lg:w-3/5">
+      <%= form_with model: @live, local: true, class: "text-gray-600" do |f| %>
+        <div class="float-right text-red-400 mr-4">
+          <%= link_to "削除", life_path(@live), data: { turbo_method: :delete } %>
+        </div>
+
+        <div class="ml-8 mr-16 text-3xl flex justify-center my-4" style="word-break: break-all;">
+          <%= @live.title %>
+        </div>
+
+        <div class="ml-8">
+          <%= f.label :place, t('activerecord.attributes.live.place') %><br>
+          <div class="mr-8 text-2xl" style="word-break: break-all;">
+            <%= @live.place %>
+          </div>
+        </div>
+
+        <div class="font-light ml-8 my-2">
+          <%= f.label :date, t('activerecord.attributes.live.date') %><br>
+          <div class="text-2xl">
+            <%= @live.date.strftime('%Y年%m月%d日') if @live.date.present? %>
+          </div>
+        </div>
+
+        <div class="flex flex-row mb-2">
+          <div class="font-light ml-8">
+            <%= f.label :open_time %>
+            <div class="text-2xl">
+              <%= @live.open_time.strftime('%H時%M分') if @live.open_time..present? %>
+            </div>
+          </div>
+
+          <div class="font-light ml-8">
+            <%= f.label :start_time %>
+            <div class="text-2xl">
+              <%= @live.start_time.strftime('%H時%M分') if @live.start_time.present? %>
+            </div>
+          </div>
+        </div>
+
+        <div class="font-light ml-8 mb-2">
+          <%= f.label :departure_time %>
+          <div class="text-2xl">
+            <%= @live.departure_time.strftime('%H時%M分') if @live.departure_time.present? %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
