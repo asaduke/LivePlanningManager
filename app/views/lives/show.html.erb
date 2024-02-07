@@ -10,41 +10,66 @@
           <%= @live.title %>
         </div>
 
-        <div class="ml-8">
-          <%= f.label :place, t('activerecord.attributes.live.place') %><br>
-          <div class="mr-8 text-2xl" style="word-break: break-all;">
-            <%= @live.place %>
-          </div>
-        </div>
+        <% if @live.place.present? %>
+          <div class="ml-8 mr-8" style="word-break: break-all;">
+            <div class="text-teal-600">
+              <%= f.label :place, t('activerecord.attributes.live.place') %><br>
+            </div>
 
-        <div class="font-light ml-8 my-2">
-          <%= f.label :date, t('activerecord.attributes.live.date') %><br>
-          <div class="text-2xl">
-            <%= @live.date.strftime('%Y年%m月%d日') if @live.date.present? %>
-          </div>
-        </div>
-
-        <div class="flex flex-row mb-2">
-          <div class="font-light ml-8">
-            <%= f.label :open_time %>
             <div class="text-2xl">
-              <%= @live.open_time.strftime('%H時%M分') if @live.open_time..present? %>
+              <%= @live.place %>
             </div>
           </div>
+        <% end %>
 
-          <div class="font-light ml-8">
-            <%= f.label :start_time %>
+        <% if @live.date.present? %>
+          <div class="font-light ml-8 my-2">
+            <div class="text-teal-600">
+              <%= f.label :date, t('activerecord.attributes.live.date') %><br>
+            </div>
+
             <div class="text-2xl">
-              <%= @live.start_time.strftime('%H時%M分') if @live.start_time.present? %>
+              <%= @live.date.strftime('%Y年%m月%d日') %>
             </div>
           </div>
-        </div>
+        <% end %>
 
-        <div class="font-light ml-8 mb-2">
-          <%= f.label :departure_time %>
-          <div class="text-2xl">
-            <%= @live.departure_time.strftime('%H時%M分') if @live.departure_time.present? %>
-          </div>
+        <div class="grip gap-x-4 flex flex-row mb-2">
+          <% if @live.open_time.present? %>
+            <div class="font-light ml-8">
+              <div class="text-teal-600">
+                <%= f.label :open_time %>
+              </div>
+
+              <div class="text-2xl">
+                <%= @live.open_time.strftime('%H時%M分') %>
+              </div>
+            </div>
+          <% end %>
+
+          <% if @live.start_time.present? %>
+            <div class="font-light ml-8">
+              <div class="text-teal-600">
+                <%= f.label :start_time %>
+              </div>
+
+              <div class="text-2xl">
+                <%= @live.start_time.strftime('%H時%M分') %>
+              </div>
+            </div>
+          <% end %>
+
+          <% if @live.departure_time.present? %>
+            <div class="font-light ml-8 mb-2">
+              <div class="text-amber-600">
+                <%= f.label :departure_time %>
+              </div>
+
+              <div class="text-2xl">
+                <%= @live.departure_time.strftime('%H時%M分') %>
+              </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>

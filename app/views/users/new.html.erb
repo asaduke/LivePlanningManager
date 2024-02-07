@@ -1,28 +1,28 @@
 <div class="bg-indigo-50 mx-auto px-4 py-16 min-h-screen">
   <div class="flex justify-center">
     <div class="shadow-lg bg-blue-50 rounded-md w-full md:w-5/6 lg:w-3/5 flex fustify-center items-center flex-col">
-      <h1 class="font-light text-gray-600 text-3xl mt-8 text-center">新規登録</h1>
+      <h1 class="font-light text-sky-600 text-3xl mt-8 text-center">新規登録</h1>
 
       <%= form_with model: @user, local: true, class: "space-y-2 mt-8 mb-16 mx-16 w-3/4 md:w-3/5 lg:w-3/5" do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
 
         <div class="form-group">
-          <%= f.label :name %><br>
+          <%= f.label :name, class: "text-sky-600" %><br>
           <%= f.text_field :name, class: "mt-1 py-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :email %><br>
+          <%= f.label :email, class: "text-sky-600" %><br>
           <%= f.email_field :email, class: "mt-1 py-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password %><br>
+          <%= f.label :password, class: "text-sky-600" %><br>
           <%= f.password_field :password, class: "mt-1 py-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password_confirmation %><br>
+          <%= f.label :password_confirmation, class: "text-sky-600" %><br>
           <%= f.password_field :password_confirmation, class: "mt-1 py-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
         </div>
 

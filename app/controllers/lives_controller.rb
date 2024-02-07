@@ -40,7 +40,7 @@ class LivesController < ApplicationController
   def destroy
     @live.destroy!
     flash[:success] = "削除しました"
-    redirect_to lives_path
+    redirect_to lives_path, status: :see_other
   end
 
   private
