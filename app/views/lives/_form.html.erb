@@ -16,7 +16,7 @@
     <%= f.date_field :date, class: "mb-2 py-2 w-full sm:w-auto rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
 
-  <div class="grid gap-x-8 gap-y-4 lg:flex lg:flex-row">
+  <div class="grid gap-x-8 gap-y-4 sm:flex sm:flex-row">
     <div class="form-group">
       <%= f.label :open_time, class: "text-teal-600" %><br>
       <%= f.time_field :open_time, class: "w-full sm:w-auto rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
@@ -34,6 +34,6 @@
   </div>
 
   <div class="flex justify-center items-center">
-    <%= f.submit '登録', class: "text-gray-600 btn bg-green-300 text-green-700 text-xl font-light mt-12 hover:ring-2 ring-green-300 hover:bg-green-400" %>
+    <%= f.submit '登録', class: "btn bg-green-300 text-green-700 text-xl font-light mt-12 hover:ring-2 ring-green-300 hover:bg-green-400" %>
   </div>
 <% end %>
