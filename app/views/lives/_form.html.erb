@@ -2,7 +2,11 @@
   <%= render 'shared/error_messages', object: f.object %>
 
   <div class="form-group">
-    <%= f.label :title, class: "text-teal-600" %><br>
+    <div class="flex flex-row">
+      <%= f.label :title, class: "text-teal-600" %>
+      <div class="ml-1 text-red-600">*</div><br>
+    </div>
+
     <%= f.text_field :title, class: "mb-2 py-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
 

@@ -7,17 +7,29 @@
         <%= render 'shared/error_messages', object: f.object %>
 
         <div class="form-group">
-          <%= f.label :email, class: "text-sky-600" %><br>
+          <div class="flex flex-row">
+            <%= f.label :email, class: "text-sky-600" %>
+            <div class="ml-1 text-red-600">*</div><br>
+          </div>
+
           <%= f.email_field @user.email, class: "mt-1 py-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password, class: "text-sky-600" %><br>
+          <div class="flex flex-row">
+            <%= f.label :password, class: "text-sky-600" %>
+            <div class="ml-1 text-red-600">*</div><br>
+          </div>
+
           <%= f.password_field :password, class: "mt-1 py-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password_confirmation, class: "text-sky-600" %><br>
+          <div class="flex flex-row">
+            <%= f.label :password_confirmation, class: "text-sky-600" %>
+            <div class="ml-1 text-red-600">*</div><br>
+          </div>
+
           <%= f.password_field :password_confirmation, class: "mt-1 py-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
         </div>
 
