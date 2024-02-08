@@ -1,0 +1,37 @@
+<% @lives.each do |live| %>
+  <%= link_to life_path(live), class: "shadow-lg bg-teal-50 rounded-md mb-8 mx-4 w-96 h-44" do %>
+    <%= form_with url: lives_path, local: true, class: "text-gray-600" do |f| %>
+      <div class="text-2xl flex justify-center my-2 mx-8" style="word-break: break-all;">
+        <%= truncate(live.title, length: 15) %>
+      </div>
+
+      <div class="mx-8" style="word-break: break-all;">
+        <div class="text-teal-600">
+          <%= f.label :place, t('activerecord.attributes.live.place') %><br>
+        </div>
+
+        <% if live.place.present? %>
+          <div class="text-2xl">
+            <%= truncate(live.place, length: 15) %>
+          </div>
+        <% else %>
+          <p class="text-2xl text-gray-400">指定なし</p>
+        <% end %>
+      </div>
+
+      <div class="font-light ml-8 my-2">
+        <div class="text-teal-600">
+          <%= f.label :date, t('activerecord.attributes.live.date') %><br>
+        </div>
+
+        <% if live.date.present? %>
+          <div class="text-2xl">
+            <%= live.date.strftime('%Y年%m月%d日') %>
+          </div>
+        <% else %>
+          <p class="text-2xl text-gray-400">指定なし</p>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

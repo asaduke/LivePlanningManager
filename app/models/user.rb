@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  has_many :lives, class_name: 'Live'
+  has_many :lives, class_name: 'Live', dependent: :destroy
+  has_many :packing_items, dependent: :destroy
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -11,4 +12,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
 
   validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
+
+  def own?(object)
+    id == object.user_id
+  end
 end

@@ -1,5 +1,5 @@
 class LivesController < ApplicationController
-  before_action :set_live, only: %i[edit update destroy]
+  before_action :set_live, only: %i[show edit update destroy]
 
   def index
     @lives = Live.all.order(date: :desc)
@@ -23,24 +23,23 @@ class LivesController < ApplicationController
     end
   end
 
-  def show
-    @live = Live.find(params[:id])
-  end
+  def show; end
 
   def update
     if @live.update(live_params)
-      flash[:success] = "更新しました"
       redirect_to @live
     else
-      flash.now[:error] = "更新できませんでした"
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @live.destroy!
-    flash[:success] = "削除しました"
-    redirect_to lives_path
+    if @live.destroy
+      redirect_to lives_path, flash: { success: "削除しました" }, status: :see_other
+    else
+      flash.now[:error] = "削除できませんでした"
+      render :show
+    end
   end
 
   private
