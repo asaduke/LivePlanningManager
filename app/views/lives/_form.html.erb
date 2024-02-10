@@ -1,7 +1,7 @@
-<%= form_with model: @live, local: true, class: "space-y-2 mt-8 mb-16 mx-16 w-3/4 md:w-3/5 lg:w-3/5" do |f| %>
+<%= form_with model: @live, local: true, class: "w-96 m-6 md:w-3/5 lg:w-3/5" do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <div class="form-group">
+  <div class="form-group my-2">
     <div class="flex flex-row">
       <%= f.label :title, class: "text-teal-600" %>
       <div class="ml-1 text-red-600">*</div><br>
@@ -15,23 +15,23 @@
     <%= f.text_field :place, class: "mb-2 py-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group my-2">
     <%= f.label :date, class: "text-teal-600" %><br>
     <%= f.date_field :date, class: "mb-2 py-2 w-full sm:w-auto rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
 
-  <div class="grid gap-x-8 gap-y-4 sm:flex sm:flex-row">
-    <div class="form-group">
+  <div class="flex flex-row space-x-6">
+    <div class="form-group flex-1">
       <%= f.label :open_time, class: "text-teal-600" %><br>
       <%= f.time_field :open_time, class: "w-full sm:w-auto rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group flex-1">
       <%= f.label :start_time, class: "text-teal-600" %><br>
       <%= f.time_field :start_time, class: "py-2 w-full sm:w-auto rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group flex-1">
       <%= f.label :departure_time, class: "text-amber-600" %><br>
       <%= f.time_field :departure_time, class: "py-2 w-full sm:w-auto rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
     </div>

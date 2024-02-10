@@ -1,11 +1,11 @@
 <% @lives.each do |live| %>
-  <%= link_to life_path(live), class: "shadow-lg bg-teal-50 rounded-md mb-8 mx-4 w-96 h-44" do %>
+  <%= link_to life_path(live), class: "shadow-lg ring-2 ring-teal-100 bg-teal-50 rounded-md mb-8 mx-4 w-[25rem] h-44" do %>
     <%= form_with url: lives_path, local: true, class: "text-gray-600" do |f| %>
-      <div class="text-2xl flex justify-center my-2 mx-8" style="word-break: break-all;">
+      <div class="text-2xl flex justify-center my-2 mx-6" style="word-break: break-all;">
         <%= truncate(live.title, length: 15) %>
       </div>
 
-      <div class="mx-8" style="word-break: break-all;">
+      <div class="mx-6" style="word-break: break-all;">
         <div class="text-teal-600">
           <%= f.label :place, t('activerecord.attributes.live.place') %><br>
         </div>
@@ -19,7 +19,7 @@
         <% end %>
       </div>
 
-      <div class="font-light ml-8 my-2">
+      <div class="font-light ml-6 my-2">
         <div class="text-teal-600">
           <%= f.label :date, t('activerecord.attributes.live.date') %><br>
         </div>
