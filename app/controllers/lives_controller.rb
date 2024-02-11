@@ -23,7 +23,11 @@ class LivesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @live = Live.find(params[:id])
+    @packing_item = PackingItem.new
+    @packing_items = @live.packing_items.includes(:user)
+  end
 
   def update
     if @live.update(live_params)

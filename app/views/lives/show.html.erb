@@ -1,11 +1,19 @@
 <div class="bg-sky-50 mx-auto px-4 py-16 min-h-screen">
   <div class="flex justify-center">
     <div class="shadow-lg ring-2 ring-teal-100 bg-teal-50 rounded-md w-full md:w-5/6 lg:w-3/5">
-      <div class="float-right text-red-400 mt-3 mr-3">
+      <div class="float-right text-red-400 mr-3">
         <%= link_to "削除", life_path(@live), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
       </div>
       <!-- ライブ登録詳細 -->
-      <%= render 'show_form', { live: @live } %>
+      <%= render 'lives/show_form', { live: @live } %>
+
+      <!-- 持ち物リストフォーム -->
+      <%= render 'packing_items/form', { packing_item: @packing_item, live: @live } %>
+
+      <!-- 持ち物リスト -->
+      <div id="packing_items">
+        <%= render 'packing_items/packing_list', { packing_items: @packing_items } %>
+      </div>
     </div>
   </div>
 </div>

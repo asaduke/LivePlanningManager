@@ -1,0 +1,9 @@
+<tr id="packing_item-<%= packing_item.id %>">
+  <td>
+    <div id="js-packing_item-<%= packing_item.id %>", class="packing-item">
+      <%= packing_item.name %>
+    </div>
+
+    <%= link_to '削除', packing_item_path(packing_item), data: { turbo_method: :delete }, class: 'js-delete-packing_item-button' %>
+  </td>
+</tr>
