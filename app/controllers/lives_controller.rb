@@ -2,7 +2,7 @@ class LivesController < ApplicationController
   before_action :set_live, only: %i[show edit update destroy]
 
   def index
-    @lives = Live.all.order(date: :desc)
+    @lives = current_user.lives.all.order(date: :desc)
   end
 
   def new
@@ -53,6 +53,11 @@ class LivesController < ApplicationController
   end
 
   def set_live
-    @live = current_user.lives.find(params[:id])
+    @live = current_user.lives.find_by(id: params[:id])
+
+    if @live.nil?
+      flash[:error] = "指定されたライブは存在しません"
+      redirect_to lives_path
+    end
   end
 end
