@@ -1,9 +1,21 @@
-<tr id="packing_item-<%= packing_item.id %>">
-  <td>
-    <div id="js-packing_item-<%= packing_item.id %>", class="packing-item">
-      <%= packing_item.name %>
-    </div>
+<%= turbo_frame_tag packing_item do %>
+  <% if packing_item.id %>
+    <%= form_with model: [:toggle, packing_item], local: true do |f| %>
+      <div class="flex flex-row justify-between ring-2 ring-sky-100 bg-sky-50 w-96 ml-6 py-4">
+        <label class="<%= packing_item.is_checked ? 'completed' : '' %> flex flex-row">
+          <div class="ml-4">
+            <%= f.check_box :is_checked, onchange: "this.form.requestSubmit();" %>
+          </div>
 
-    <%= link_to '削除', packing_item_path(packing_item), data: { turbo_method: :delete }, class: 'js-delete-packing_item-button' %>
-  </td>
-</tr>
+          <div id="js-packing_item-<%= packing_item.id %>" class="packing-item text-gray-600 ml-4 text-base">
+            <%= packing_item.name %>
+          </div>
+        </label>
+
+        <div class="text-red-400 text-xs pt-1 mr-4 ml-2">
+          <%= link_to '削除', packing_item_path(packing_item), data: { turbo_method: :delete, turbo_confirm: "#{ packing_item.name } を削除しますか？" }, class: 'js-delete-packing_item-button' %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

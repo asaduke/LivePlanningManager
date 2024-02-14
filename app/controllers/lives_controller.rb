@@ -26,7 +26,7 @@ class LivesController < ApplicationController
   def show
     @live = Live.find(params[:id])
     @packing_item = PackingItem.new
-    @packing_items = @live.packing_items.includes(:user)
+    @packing_items = @live.packing_items.includes(:user).order(:id)
   end
 
   def update
