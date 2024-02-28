@@ -1,10 +1,5 @@
 <%= turbo_frame_tag live do %>
   <%= form_with model: @live, local: true, class: "text-gray-600" do |f| %>
-    <!-- 画面が小さい時は表示、大きい時は非表示 -->
-    <div class="xl:hidden float-right text-red-400 mr-3">
-      <%= link_to "削除", life_path(@live), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
-    </div>
-
     <div class="ml-4 mr-16 text-2xl flex justify-center my-4" style="word-break: break-all;">
       <div class="text-gray-400 text-sm pr-2 pt-2">
         <%=link_to '編集', edit_life_path(live) %>
@@ -14,7 +9,7 @@
     </div>
 
     <% if @live.place.present? %>
-      <div class="mx-6 mb-2" style="word-break: break-all;">
+      <div class="mx-6 xl:mx-12 mb-2" style="word-break: break-all;">
         <div class="text-teal-600">
           <%= f.label :place, t('activerecord.attributes.live.place') %><br>
         </div>
@@ -26,7 +21,7 @@
     <% end %>
 
     <% if @live.date.present? %>
-      <div class="font-light ml-6 mb-2">
+      <div class="font-light ml-6 xl:ml-12 mb-2">
         <div class="text-teal-600">
           <%= f.label :date, t('activerecord.attributes.live.date') %><br>
         </div>
@@ -39,7 +34,7 @@
 
     <div class="space-x-12 flex flex-row mb-2">
       <% if @live.open_time.present? %>
-        <div class="font-light ml-6">
+        <div class="font-light ml-6 xl:ml-12">
           <div class="text-teal-600">
             <%= f.label :open_time %>
           </div>
@@ -51,7 +46,7 @@
       <% end %>
 
       <% if @live.start_time.present? %>
-        <div class="font-light ml-6">
+        <div class="font-light ml-6 xl:ml-12">
           <div class="text-teal-600">
             <%= f.label :start_time %>
           </div>
@@ -63,7 +58,7 @@
       <% end %>
 
       <% if @live.departure_time.present? %>
-        <div class="font-light ml-6 mb-2">
+        <div class="font-light ml-6 xl:ml-12 mb-2">
           <div class="text-amber-600">
             <%= f.label :departure_time %>
           </div>
