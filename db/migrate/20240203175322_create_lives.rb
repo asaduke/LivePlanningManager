@@ -6,7 +6,7 @@ class CreateLives < ActiveRecord::Migration[7.0]
       t.date :date
       t.time :open_time
       t.time :start_time
-      t.time :departure_time
+      t.datetime :departure_time
 
       t.timestamps null: false
     end

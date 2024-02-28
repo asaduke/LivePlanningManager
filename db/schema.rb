@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_07_203210) do
     t.date "date"
     t.time "open_time"
     t.time "start_time"
-    t.time "departure_time"
+    t.datetime "departure_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
