@@ -1,7 +1,7 @@
 <%= turbo_frame_tag packing_item do %>
   <% if packing_item.id %>
     <%= form_with model: [:toggle, packing_item], local: true do |f| %>
-      <div class="flex flex-row justify-between ring-2 ring-sky-100 bg-sky-50 w-11/12 mx-5 py-4">
+      <div class="flex flex-row justify-between ring-2 ring-sky-100 bg-sky-50 w-auto mx-5 py-4">
         <label class="<%= packing_item.is_checked ? 'completed' : '' %> flex flex-row">
           <div class="ml-4">
             <%= f.check_box :is_checked, onchange: "this.form.requestSubmit();" %>
