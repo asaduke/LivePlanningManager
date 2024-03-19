@@ -50,8 +50,6 @@
 ・パスワード再設定機能<br>
 ・ライブ登録機能<br>
 ・持ち物リスト一覧機能<br>
-・LINE通知機能(LINE Messaging API)<br>
-・テスト機能(RSpec)
 
 ### その後の機能
 
@@ -62,7 +60,9 @@
 ・マルチ検索, オートコンプリート機能<br>
 ・管理ユーザー機能<br>
 ・SNS共有機能<br>
-・PWA機能
+・PWA機能<br>
+・LINE通知機能(LINE Messaging API)<br>
+・テスト機能(RSpec)
 
 ## 画面遷移図
 
