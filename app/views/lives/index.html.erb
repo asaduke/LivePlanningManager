@@ -5,7 +5,12 @@
       <%= render 'live_card', { live: @live } %>
     </div>
   <% else %>
-    <div class="pt-20 flex justify-center items-center">
+    <div class="pt-20 flex justify-center text-center flex-col text-gray-600">
+      <p>まだライブが登録されていません。</p>
+      <p>ライブ登録をして、持ち物リストを作成しよう！</p>
+      <p>↓</p>
+    </div>
+    <div class="pt-4 flex justify-center items-center">
       <%= link_to 'ライブ登録', new_life_path, class: "btn bg-teal-100 text-teal-500 text-xl font-light hover:ring-2 ring-teal-100 hover:bg-teal-200" %>
     </div>
   <% end %>
