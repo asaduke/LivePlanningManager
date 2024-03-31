@@ -12,8 +12,10 @@
           </div>
         </label>
 
-        <div class="text-red-400 text-xs pt-1 mr-4 ml-2">
-          <%= link_to '削除', packing_item_path(packing_item), data: { turbo_method: :delete, turbo_confirm: "#{ packing_item.name } を削除しますか？" }, class: 'js-delete-packing_item-button' %>
+        <div class="text-red-300 hover:text-red-400 text-xs pt-1 mr-4 ml-2">
+          <%= link_to packing_item_path(packing_item), data: { turbo_method: :delete, turbo_confirm: "#{ packing_item.name } を削除しますか？" }, class: 'js-delete-packing_item-button' do %>
+            <i class="fa-lg fa-solid fa-trash-can"></i>
+          <% end %>
         </div>
       </div>
     <% end %>

@@ -17,7 +17,7 @@ ja:
         date: '日付'
         open_time: '開場時間'
         start_time: '開始時間'
-        departure_time: '出発時間'
+        departure_time: '出発日時'
         id: 'ID'
         created_at: '作成日時'
         updated_at: '更新日時'
