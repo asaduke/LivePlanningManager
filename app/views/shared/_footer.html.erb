@@ -6,7 +6,7 @@
         <p class="text-xs">みんなのリスト</p>
       <% end %>
 
-      <%=link_to lives_path do %>
+      <%=link_to lives_path, class: "btm-nav-item #{'active' if current_page?(lives_path)}" do %>
         <i class="py-3 fa-lg fa-solid fa-rectangle-list"></i>
         <p class="text-xs">リスト一覧</p>
       <% end %>
