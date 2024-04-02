@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_07_203210) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_02_141904) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,14 +38,21 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_07_203210) do
     t.index ["user_id"], name: "index_packing_items_on_user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "avatar"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
-    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "avatar"
     t.string "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
@@ -57,4 +64,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_07_203210) do
   add_foreign_key "lives", "users"
   add_foreign_key "packing_items", "lives", column: "live_id"
   add_foreign_key "packing_items", "users"
+  add_foreign_key "profiles", "users"
 end
