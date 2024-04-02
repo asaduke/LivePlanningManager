@@ -4,13 +4,15 @@ ja:
       user: 'ユーザー'
     attributes:
       user:
-        name: '名前'
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード(確認)'
         id: 'ID'
         created_at: '作成日時'
         updated_at: '更新日時'
+      profile:
+        name: '名前'
+        avatar: 'プロフィール画像'
       live:
         title: 'タイトル'
         place: '会場'
