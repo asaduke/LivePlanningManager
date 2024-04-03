@@ -1,7 +1,26 @@
+<h1 class="font-light text-sky-600 text-xl mt-4 text-center">プロフィール</h1>
+
 <% if current_user.profile %>
-  <%= form_with model: [@other, @profile], url: other_path(current_user), local: true, class: "pb-8 text-gray-600" do |f| %>
-    <div class="pt-2 flex flex-row justify-center">
-      <%= @profile.name %>
+  <%= form_with model: [@other, @profile], url: other_path(current_user), local: true, class: "pb-6 text-gray-600" do |f| %>
+    <div class="pt-2 form-group">
+      <div class="pl-8">
+        <i class="py-3 fa-sm fa-solid fa-user"></i>
+        <%= f.label :name %>
+      </div>
+
+      <div class="text-xl flex justify-center">
+        <%= @profile.name %>
+      </div>
+    </div>
+
+    <div class="pt-2 form-group">
+      <div class="pl-8">
+        <i class="fa-solid fa-image"></i>
+        <%= f.label :avatar %>
+      </div>
+      <div class="flex justify-center">
+        <%= image_tag @profile.avatar_url, size: '70x70', class: "pt-1 rounded-full" %>
+      </div>
     </div>
   <% end %>
 <% else %>
