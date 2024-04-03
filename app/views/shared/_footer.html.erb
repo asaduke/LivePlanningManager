@@ -16,9 +16,13 @@
         <p class="text-xs">カレンダー</p>
       <% end %>
 
-      <%=link_to '#' do %>
-        <i class="py-3 fa-lg fa-solid fa-user"></i>
-        <p class="text-xs">プロフィール</p>
+      <% if current_user && current_user.profile %>
+        <%=link_to profile_path(current_user.profile), class: "btm-nav-item #{'active' if current_page?(profile_path(current_user.profile))}" do %>
+          <i class="py-3 fa-lg fa-solid fa-user"></i>
+          <p class="text-xs">プロフィール</p>
+        <% end %>
+      <% else %>
+        <p>まだプロフィールを設定していません。</p>
       <% end %>
     </div>
   <% else %>
