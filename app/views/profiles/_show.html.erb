@@ -1,0 +1,11 @@
+<% if current_user.profile %>
+  <%= form_with model: [@other, @profile], url: other_path(current_user), local: true, class: "pb-8 text-gray-600" do |f| %>
+    <div class="pt-2 flex flex-row justify-center">
+      <%= @profile.name %>
+    </div>
+  <% end %>
+<% else %>
+  <div class="pt-2 pb-8 text-gray-600 flex flex-row justify-center">
+    <p>まだプロフィールが設定されていません。</p>
+  </div>
+<% end %>

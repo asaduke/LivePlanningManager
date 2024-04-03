@@ -16,5 +16,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :profiles, only: %i[show]
+  resources :others, only: %i[show] do
+    resources :profiles, only: %i[show]
+  end
 end

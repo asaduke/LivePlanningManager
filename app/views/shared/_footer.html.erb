@@ -11,18 +11,9 @@
         <p class="text-xs">リスト一覧</p>
       <% end %>
 
-      <%=link_to '#' do %>
-        <i class="py-3 fa-lg fa-solid fa-calendar-days"></i>
-        <p class="text-xs">カレンダー</p>
-      <% end %>
-
-      <% if current_user && current_user.profile %>
-        <%=link_to profile_path(current_user.profile), class: "btm-nav-item #{'active' if current_page?(profile_path(current_user.profile))}" do %>
-          <i class="py-3 fa-lg fa-solid fa-user"></i>
-          <p class="text-xs">プロフィール</p>
-        <% end %>
-      <% else %>
-        <p>まだプロフィールを設定していません。</p>
+      <%=link_to other_path(current_user), class: "btm-nav-item #{'active' if current_page?(other_path(current_user))}" do %>
+        <i class="py-3 fa-lg fa-solid fa-comment-dots"></i>
+        <p class="text-xs">その他</p>
       <% end %>
     </div>
   <% else %>
