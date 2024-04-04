@@ -1,30 +1,44 @@
-<h1 class="font-light text-sky-600 text-xl mt-4 text-center">プロフィール</h1>
+<div class="flex justify-center">
+  <div class="shadow-lg ring-2 ring-sky-200 bg-sky-100 rounded-md mx-4 w-[25rem]" >
+    <div class="flex flex-row justify-center">
+      <%=link_to edit_profile_path(@profile), class: "pt-5 pl-4 text-gray-400 hover:text-gray-500 text-sm" do %>
+        <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
 
-<% if current_user.profile %>
-  <%= form_with model: [@other, @profile], url: other_path(current_user), local: true, class: "pb-6 text-gray-600" do |f| %>
-    <div class="pt-2 form-group">
-      <div class="pl-8">
-        <i class="py-3 fa-sm fa-solid fa-user"></i>
-        <%= f.label :name %>
-      </div>
-
-      <div class="text-xl flex justify-center">
-        <%= @profile.name %>
-      </div>
+      <h1 class="font-light text-sky-600 text-xl mt-4 pl-1">プロフィール</h1>
     </div>
 
-    <div class="pt-2 form-group">
-      <div class="pl-8">
-        <i class="fa-solid fa-image"></i>
-        <%= f.label :avatar %>
+    <% if current_user.profile %>
+      <%= form_with model: [@other, @profile], url: other_path(current_user), local: true, class: "pb-6 text-gray-600" do |f| %>
+        <div class="pt-2 form-group">
+          <div class="pl-8">
+            <i class="py-3 fa-sm fa-solid fa-user"></i>
+            <%= f.label :name %>
+          </div>
+
+          <div class="text-xl flex justify-center">
+            <%= @profile.name %>
+          </div>
+        </div>
+
+        <div class="pt-2 form-group">
+          <div class="pl-8">
+            <i class="fa-solid fa-image"></i>
+            <%= f.label :avatar %>
+          </div>
+          <div class="flex justify-center">
+            <% if current_user.profile.avatar %>
+              <%= image_tag current_user.profile.avatar.url, size: '70x70', class: "pt-1 rounded-full" %>
+            <% else %>
+              <%= image_tag @profile.avatar_url, size: '70x70', class: "pt-1 rounded-full" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="pt-2 pb-8 text-gray-600 flex flex-row justify-center">
+        <p>まだプロフィールが設定されていません。</p>
       </div>
-      <div class="flex justify-center">
-        <%= image_tag @profile.avatar_url, size: '70x70', class: "pt-1 rounded-full" %>
-      </div>
-    </div>
-  <% end %>
-<% else %>
-  <div class="pt-2 pb-8 text-gray-600 flex flex-row justify-center">
-    <p>まだプロフィールが設定されていません。</p>
+    <% end %>
   </div>
-<% end %>
+</div>
