@@ -46,5 +46,8 @@ module LivePlanningManager
 
     # 日本語化
     config.i18n.default_locale = :ja
+
+    # 週の始まりを日曜日に変更
+    config.beginning_of_week = :sunday
   end
 end
