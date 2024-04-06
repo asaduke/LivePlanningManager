@@ -4,7 +4,7 @@
       <%=link_to edit_life_path(live), class: "pt-5 pl-4 text-gray-400 hover:text-gray-500 text-sm" do %>
         <i class="fa-solid fa-pen-to-square"></i>
       <% end %>
-      <div class="pl-2 pr-4 text-xl flex justify-center mt-4 mb-2" style="word-break: break-all;">
+      <div class="text-gray-600 pl-2 pr-4 text-xl flex justify-center mt-4 mb-2" style="word-break: break-all;">
         <%= @live.title %>
       </div>
     </div>
@@ -16,7 +16,7 @@
           <%= f.label :place, t('activerecord.attributes.live.place'), class: "text-sm" %><br>
         </div>
 
-        <div class="text-lg">
+        <div class="text-lg text-gray-600">
           <%= @live.place %>
         </div>
       </div>
@@ -29,7 +29,7 @@
           <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
         </div>
 
-        <div class="text-lg">
+        <div class="text-lg text-gray-600">
           <%= @live.date.strftime('%Y年%m月%d日') %>
         </div>
       </div>
@@ -43,7 +43,7 @@
             <%= f.label :open_time, class: "text-sm" %>
           </div>
 
-          <div class="text-lg">
+          <div class="text-lg text-gray-600">
             <%= @live.open_time.strftime('%H時%M分') %>
           </div>
         </div>
@@ -56,7 +56,7 @@
             <%= f.label :start_time, class: "text-sm" %>
           </div>
 
-          <div class="text-lg">
+          <div class="text-lg text-gray-600">
             <%= @live.start_time.strftime('%H時%M分') %>
           </div>
         </div>
@@ -70,7 +70,7 @@
           <%= f.label :departure_time, class: "text-sm" %>
         </div>
 
-        <div class="text-lg">
+        <div class="text-lg text-gray-600">
           <%= @live.departure_time.strftime('%Y年%m月%d日%H時%M分') %>
         </div>
       </div>
