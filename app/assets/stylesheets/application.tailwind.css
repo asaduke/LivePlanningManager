@@ -16,6 +16,26 @@
   text-decoration: line-through;
 }
 
-.btm-nav-item.active {
-  background-color: bg-sky-400;
+.simple-calendar {
+  .wday-0 {
+    background-color: #ffe3e3;
+  }
+  .wday-6 {
+    background-color: #e0ebff;
+  }
+
+  .today {
+    background-color: #fffbda;
+  }
+
+  .prev-month {
+    background-color: #e7e7e7;
+  }
+  .next-month {
+    background-color: #e7e7e7;
+  }
+
+  .has-events {
+    background-color: #eafff9;
+  }
 }
