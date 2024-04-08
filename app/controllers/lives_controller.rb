@@ -2,7 +2,7 @@ class LivesController < ApplicationController
   before_action :set_live, only: %i[show edit update destroy]
 
   def index
-    @lives = current_user.lives.all.order(date: :desc)
+    @lives = current_user.lives.all.order(departure_time: :desc)
   end
 
   def new
