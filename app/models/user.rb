@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :packing_items, dependent: :destroy
   has_one :profile
   accepts_nested_attributes_for :profile
+  has_many :posts, dependent: :destroy
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
