@@ -1,39 +1,52 @@
 <% @lives.each do |live| %>
-  <%= link_to life_path(live), class: "shadow-lg ring-2 ring-teal-100 bg-teal-50 rounded-md mb-8 mx-4 w-[25rem] h-42" do %>
-    <%= form_with url: lives_path, local: true, class: "text-gray-600" do |f| %>
-      <div class="text-xl flex justify-center mt-2 mx-6" style="word-break: break-all;">
-        <%= truncate(live.title, length: 13) %>
-      </div>
-
-      <div class="mx-6" style="word-break: break-all;">
-        <div class="text-teal-600">
-          <i class="fa-sm fa-solid fa-map-location-dot"></i>
-          <%= f.label :place, t('activerecord.attributes.live.place'), class: "text-sm" %><br>
+  <div class="shadow-lg ring-2 ring-teal-100 bg-teal-50 rounded-md mb-8 mx-4 w-[25rem] h-42">
+    <%= link_to life_path(live) do %>
+      <%= form_with url: lives_path, local: true, class: "text-gray-600" do |f| %>
+        <div class="text-xl flex justify-center mt-2 mx-6" style="word-break: break-all;">
+          <%= truncate(live.title, length: 13) %>
         </div>
 
-        <% if live.place.present? %>
-          <div class="text-lg">
-            <%= truncate(live.place, length: 13) %>
+        <div class="mx-6" style="word-break: break-all;">
+          <div class="text-teal-600">
+            <i class="fa-sm fa-solid fa-map-location-dot"></i>
+            <%= f.label :place, t('activerecord.attributes.live.place'), class: "text-sm" %><br>
           </div>
-        <% else %>
-          <p class="text-lg text-gray-400">指定なし</p>
-        <% end %>
-      </div>
 
-      <div class="font-light ml-6 my-1">
-        <div class="text-teal-600">
-          <i class="fa-sm fa-regular fa-calendar"></i>
-          <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
+          <% if live.place.present? %>
+            <div class="text-lg">
+              <%= truncate(live.place, length: 13) %>
+            </div>
+          <% else %>
+            <p class="text-lg text-gray-400">指定なし</p>
+          <% end %>
         </div>
 
-        <% if live.date.present? %>
-          <div class="text-lg">
-            <%= live.date.strftime('%Y年%m月%d日') %>
+        <div class="font-light ml-6 my-1">
+          <div class="text-teal-600">
+            <i class="fa-sm fa-regular fa-calendar"></i>
+            <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
           </div>
-        <% else %>
-          <p class="text-lg text-gray-400">指定なし</p>
-        <% end %>
-      </div>
+
+          <% if live.date.present? %>
+            <div class="text-lg">
+              <%= live.date.strftime('%Y年%m月%d日') %>
+            </div>
+          <% else %>
+            <p class="text-lg text-gray-400">指定なし</p>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+
+    <div class="dropdown dropdown-top dropdown-end float-right">
+      <div tabindex="0" role="button" class="btn mb-1 mr-1 bg-white", style="width: 50px; border-radius: 50%;">
+        <p class="mb-2 text-2xl text-gray-500">…</p>
+      </div>
+
+      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 text-gray-600">
+        <li><%=link_to '投稿する', new_post_path %></li>
+        <li><a>削除する</a></li>
+      </ul>
+    </div>
+  </div>
 <% end %>

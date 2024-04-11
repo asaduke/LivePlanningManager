@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources :others, only: %i[show], shallow: true  do
     resources :profiles, only: %i[show edit update]
   end
+  resources :posts, only: %i[indx new create show destroy]
 end

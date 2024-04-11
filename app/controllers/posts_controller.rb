@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @live = Live.find(params[:id])
   end
 
   def create
@@ -14,7 +15,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
