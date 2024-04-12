@@ -25,6 +25,10 @@ ja:
         updated_at: '更新日時'
       packing_item:
         name: 'アイテム名'
+      post:
+        open_time: '開場時間'
+        start_time: '開始時間'
+        departure_time: '出発日時'
     errors:
       messages:
         blank: 'を入力してください'
