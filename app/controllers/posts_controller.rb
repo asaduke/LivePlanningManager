@@ -6,8 +6,9 @@ class PostsController < ApplicationController
   end
 
   def new
+    @live = current_user.lives.find(params[:life_id])
+    @packing_items = @live.packing_items.includes(:user).order(:id)
     @post = Post.new
-    @live = Live.find(params[:id])
   end
 
   def create

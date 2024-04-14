@@ -15,7 +15,7 @@ Rails.application.routes.draw do
         patch :toggle
       end
     end
-    resources :posts, only: %i[indx new create show destroy]
+    resources :posts, only: %i[index new create show destroy]
   end
   resources :others, only: %i[show], shallow: true  do
     resources :profiles, only: %i[show edit update]
