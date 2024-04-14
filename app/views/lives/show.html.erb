@@ -2,7 +2,7 @@
   <div class="flex justify-center">
     <div class="shadow-lg ring-2 ring-teal-100 bg-white rounded-md w-full md:w-5/6 lg:w-7/12 pb-6">
       <div class="xl:flex xl:flex-row">
-        <div class="lg:w-3/5">
+        <div class="xl:w-3/5">
           <!-- 画面が小さい時は表示、大きい時は非表示 -->
           <div class="xl:hidden float-right text-red-300 hover:text-red-400 mt-2 mr-3">
             <%= link_to life_path(@live), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } do %>
@@ -16,7 +16,7 @@
 
         <div class="form-group xl:w-3/5">
           <!-- 画面が大きい時は表示、小さい時は非表示 -->
-          <div class="hidden xl:block xl:float-right xl:text-red-400 xl:mt-2 xl:mr-3">
+          <div class="hidden xl:block xl:float-right xl:text-red-300 xl:hover:text-red-400 xl:mt-2 xl:mr-3">
             <%= link_to life_path(@live), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } do %>
               <i class="fa-solid fa-trash-can"></i>
             <% end %>
