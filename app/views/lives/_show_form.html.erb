@@ -10,7 +10,7 @@
     </div>
 
     <% if @live.place.present? %>
-      <div class="mx-8 xl:mx-12 mb-1" style="word-break: break-all;">
+      <div class="mx-8 mb-1" style="word-break: break-all;">
         <div class="text-teal-600">
           <i class="fa-sm fa-solid fa-map-location-dot"></i>
           <%= f.label :place, t('activerecord.attributes.live.place'), class: "text-sm" %><br>
@@ -22,22 +22,22 @@
       </div>
     <% end %>
 
-    <% if @live.date.present? %>
-      <div class="font-light ml-8 xl:ml-12 mb-1">
-        <div class="text-teal-600">
-          <i class="fa-sm fa-regular fa-calendar"></i>
-          <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
-        </div>
-
-        <div class="text-lg text-gray-600">
-          <%= @live.date.strftime('%Y年%m月%d日') %>
-        </div>
-      </div>
-    <% end %>
-
     <div class="space-x-12 flex flex-row mb-1">
+      <% if @live.date.present? %>
+        <div class="font-light ml-8 mb-1">
+          <div class="text-teal-600">
+            <i class="fa-sm fa-regular fa-calendar"></i>
+            <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
+          </div>
+
+          <div class="text-lg text-gray-600">
+            <%= @live.date.strftime('%Y年%m月%d日') %>
+          </div>
+        </div>
+      <% end %>
+
       <% if @live.open_time.present? %>
-        <div class="font-light ml-8 xl:ml-12">
+        <div class="font-light ml-8">
           <div class="text-teal-600">
             <i class="fa-sm fa-regular fa-clock"></i>
             <%= f.label :open_time, class: "text-sm" %>
@@ -50,7 +50,7 @@
       <% end %>
 
       <% if @live.start_time.present? %>
-        <div class="font-light ml-8 xl:ml-12">
+        <div class="font-light ml-8">
           <div class="text-teal-600">
             <i class="fa-sm fa-regular fa-clock"></i>
             <%= f.label :start_time, class: "text-sm" %>
@@ -64,7 +64,7 @@
     </div>
 
     <% if @live.departure_time.present? %>
-      <div class="font-light ml-8 xl:ml-12 mb-1">
+      <div class="font-light ml-8 mb-1">
         <div class="text-amber-600">
           <i class="fa-sm fa-regular fa-calendar"></i>
           <%= f.label :departure_time, class: "text-sm" %>

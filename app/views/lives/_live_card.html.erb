@@ -43,9 +43,13 @@
         <p class="mb-2 text-sm text-gray-400 hover:text-gray-500">•••</p>
       </div>
 
-      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 text-gray-600">
-        <li><%=link_to '投稿する', new_life_post_path(live) %></li>
-        <li><a>削除する</a></li>
+      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-36 text-gray-600">
+        <li class="text-red-400 flex justify-center">
+          <%= link_to life_path(live), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } do %>
+            <i class="fa-solid fa-trash-can"></i>
+            削除する
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
