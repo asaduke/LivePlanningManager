@@ -29,6 +29,8 @@ ja:
         open_time: '開場時間'
         start_time: '開始時間'
         departure_time: '出発日時'
+        comment: 'コメント'
+        is_anonymous: '匿名で投稿しますか？'
     errors:
       messages:
         blank: 'を入力してください'

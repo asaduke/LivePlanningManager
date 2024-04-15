@@ -2,13 +2,17 @@ class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def index
-    @posts = Post.all.includes(:user).order(departure_time: :desc)
+    @posts = Post.all.includes(:user)
   end
 
   def new
-    @live = current_user.lives.find(params[:life_id])
-    @packing_items = @live.packing_items.includes(:user).order(:id)
-    @post = Post.new
+    @live = current_user.lives.find(params[:id])
+    if @live
+      @packing_items = @live.packing_items.includes(:user).order(:id)
+      @post = Post.new
+    else
+      redirect_to lives_path
+    end
   end
 
   def create

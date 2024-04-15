@@ -1,0 +1,16 @@
+<div class="bg-sky-50 mx-auto px-4 py-16 min-h-screen">
+  <% if @posts.present? %>
+    <!-- 持ち物リスト一覧 -->
+    <div class="flex flex-wrap justify-center">
+      <%= render 'post_card', { post: @post } %>
+    </div>
+  <% else %>
+    <div class="pt-20 flex justify-center text-center flex-col text-gray-600">
+      <p>まだライブが投稿されていません。</p>
+      <p>リスト一覧から持ち物リストを投稿しよう！</p>
+      <p>↓</p>
+      <p>↓</p>
+      <p>↓</p>
+    </div>
+  <% end %>
+</div>
