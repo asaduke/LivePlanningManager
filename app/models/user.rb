@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   has_many :lives, class_name: 'Live', dependent: :destroy
   has_many :packing_items, dependent: :destroy
-  has_one :profile
+  has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
   has_many :posts, dependent: :destroy
 
