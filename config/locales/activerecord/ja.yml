@@ -31,6 +31,7 @@ ja:
         departure_time: '出発日時'
         comment: 'コメント'
         is_anonymous: '匿名で投稿しますか？'
+        name: 'ユーザー名'
     errors:
       messages:
         blank: 'を入力してください'

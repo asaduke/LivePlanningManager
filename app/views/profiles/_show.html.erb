@@ -26,11 +26,11 @@
             <i class="fa-solid fa-image"></i>
             <%= f.label :avatar %>
           </div>
-          <div class="flex justify-center">
+          <div class="pt-1 flex justify-center">
             <% if current_user.profile.avatar %>
-              <%= image_tag current_user.profile.avatar.url, class: "pt-1", style: "width: 70px; height: 70px; object-fit: cover; border-radius: 50%;" %>
+              <%= image_tag current_user.profile.avatar.url, style: "width: 70px; height: 70px; object-fit: cover; border-radius: 50%;" %>
             <% else %>
-              <%= image_tag @profile.avatar_url, class: "pt-1", style: "width: 70px; height: 70px; object-fit: cover; border-radius: 50%;" %>
+              <%= image_tag @profile.avatar_url, style: "width: 70px; height: 70px; object-fit: cover; border-radius: 50%;" %>
             <% end %>
           </div>
         </div>

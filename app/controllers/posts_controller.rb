@@ -2,11 +2,13 @@ class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def index
-    @posts = Post.all.includes(:user)
+    @posts = Post.all
+    @profiles = @posts.map { |post| post.user.profile }
   end
 
   def new
-    @live = current_user.lives.find(params[:id])
+    @live = current_user.lives.find(params[:life_id])
+
     if @live
       @packing_items = @live.packing_items.includes(:user).order(:id)
       @post = Post.new
@@ -16,16 +18,25 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @live = current_user.lives.find(params[:life_id])
+
+    @post = @live.build_post(post_params)
+    @post.user = current_user
+
     if @post.save
+      flash[:success] = "投稿しました"
       redirect_to posts_path
     else
+      flash.now[:error] = "投稿できませんでした"
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
     @post = Post.find(params[:id])
+    @profile = @post.user.profile
+    @live = @post.live
+    @packing_items = @live.packing_items.includes(:user).order(:id)
   end
 
   private

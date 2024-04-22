@@ -2,7 +2,7 @@
   <% if @posts.present? %>
     <!-- 持ち物リスト一覧 -->
     <div class="flex flex-wrap justify-center">
-      <%= render 'post_card', { post: @post } %>
+      <%= render 'post_card', { post: @post, live: @live } %>
     </div>
   <% else %>
     <div class="pt-20 flex justify-center text-center flex-col text-gray-600">

@@ -45,9 +45,16 @@
 
       <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-36 text-gray-600">
         <li class="text-red-400 flex justify-center">
-          <%= link_to life_path(live), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } do %>
-            <i class="fa-solid fa-trash-can"></i>
-            削除する
+          <% if live.post.present? %>
+            <%= link_to life_path(live), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？※「みんなのリスト」への投稿も一緒に削除されます。" } do %>
+              <i class="fa-solid fa-trash-can"></i>
+              削除する
+            <% end %>
+          <% else %>
+            <%= link_to life_path(live), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } do %>
+              <i class="fa-solid fa-trash-can"></i>
+              削除する
+            <% end %>
           <% end %>
         </li>
       </ul>
