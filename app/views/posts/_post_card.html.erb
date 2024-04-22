@@ -39,13 +39,14 @@
             <% end %>
           </div>
 
+          <!-- ユーザー情報 -->
           <div class="flex felx-col">
             <div class="ml-6 mb-2">
               <% if post.is_anonymous? %>
                 <%= image_tag 'logo.png', style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" %>
               <% else %>
-                <% if post.user.profile.avatar %>
-                  <%= image_tag current_user.profile.avatar.url, style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" %>
+                <% if post.user.profile %>
+                  <%= image_tag post.user.profile.avatar.url, style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" %>
                 <% else %>
                   <%= image_tag 'logo.png', style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" %>
                 <% end %>
@@ -56,7 +57,11 @@
               <% if post.is_anonymous? %>
                 匿名 さん
               <% else %>
-                <%= post.user.profile.name %> さん
+                <% if post.user.profile %>
+                  <%= post.user.profile.name %> さん
+                <% else %>
+                  名無し さん
+                <% end %>
               <% end %>
             </div>
           </div>
