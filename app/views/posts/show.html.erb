@@ -2,13 +2,27 @@
   <div class="flex justify-center">
     <div class="shadow-lg ring-2 ring-teal-100 bg-white rounded-md w-full md:w-5/6 lg:w-7/12 xl:w-[60rem] pb-6">
       <div class="xl:flex xl:flex-row">
-        <!-- ライブ登録詳細 -->
         <div class="xl:w-3/5">
+          <!-- ドロップダウンメニュー(xlになったら非表示) -->
+          <div class="xl:hidden float-right mt-3">
+            <% if @post.user == current_user %>
+              <%= render 'dropdown_menu' %>
+            <% end %>
+          </div>
+
+          <!-- ライブ登録詳細 -->
           <%= render 'posts/show_form', { post: @post } %>
         </div>
 
-        <!-- アイテム情報 -->
         <div class="form-group xl:w-3/5">
+          <!-- ドロップダウンメニュー(xlになったら表示) -->
+          <div class="hidden xl:block float-right mt-3">
+            <% if @post.user == current_user %>
+              <%= render 'dropdown_menu' %>
+            <% end %>
+          </div>
+
+          <!-- アイテム情報 -->
           <div class="mt-2 mb-6 xl:mr-2 xl:mt-6 flex flex-col items-center">
             <% @packing_items.each do |packing_item| %>
               <%= form_with model: packing_item, url: life_posts_path, local: true do |f| %>

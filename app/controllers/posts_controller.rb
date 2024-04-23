@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
+  before_action :set_live, only: %i[new create destroy]
+  before_action :set_post, only: %i[show destroy]
 
   def index
     @posts = Post.all
@@ -7,8 +9,6 @@ class PostsController < ApplicationController
   end
 
   def new
-    @live = current_user.lives.find(params[:life_id])
-
     if @live
       @packing_items = @live.packing_items.includes(:user).order(:id)
       @post = Post.new
@@ -18,8 +18,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    @live = current_user.lives.find(params[:life_id])
-
     @post = @live.build_post(post_params)
     @post.user = current_user
 
@@ -33,15 +31,31 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @profile = @post.user.profile
     @live = @post.live
     @packing_items = @live.packing_items.includes(:user).order(:id)
+  end
+
+  def destroy
+    if @post.destroy
+      redirect_to posts_path, flash: { success: "削除しました" }, status: :see_other
+    else
+      flash.now[:error] = "削除できませんでした"
+      render :show
+    end
   end
 
   private
 
   def post_params
     params.require(:post).permit(:comment, :is_anonymous)
+  end
+
+  def set_live
+    @live = Live.find(params[:life_id])
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end
