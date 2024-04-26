@@ -1,16 +1,23 @@
 <%= turbo_frame_tag live do %>
   <%= form_with model: @live, local: true, class: "text-gray-600" do |f| %>
-    <div class="flex flex-row justify-center">
-      <%=link_to edit_life_path(live), class: "pt-5 pl-4 text-gray-400 hover:text-gray-500 text-sm" do %>
-        <i class="fa-solid fa-pen-to-square"></i>
-      <% end %>
-      <div class="text-gray-600 pl-2 pr-4 text-xl flex justify-center mt-4 mb-2" style="word-break: break-all;">
+    <!-- 投稿後は編集できないように -->
+    <% if @live.post.present? %>
+      <div class="text-gray-600 mt-4 mb-2 pl-7 pr-2 text-xl flex justify-center xl:pl-0" style="word-break: break-all;">
         <%= @live.title %>
       </div>
-    </div>
+    <% else %>
+      <div class="flex flex-row justify-center">
+        <%=link_to edit_life_path(live), class: "pt-5 pl-4 text-gray-400 hover:text-gray-500 text-sm" do %>
+          <i class="fa-solid fa-pen-to-square"></i>
+        <% end %>
+        <div class="text-gray-600 pl-2 pr-4 text-xl flex justify-center mt-4 mb-2" style="word-break: break-all;">
+          <%= @live.title %>
+        </div>
+      </div>
+    <% end %>
 
     <% if @live.place.present? %>
-      <div class="mx-8 xl:mx-12 mb-1" style="word-break: break-all;">
+      <div class="mx-8 xl:mx-10 mb-1" style="word-break: break-all;">
         <div class="text-teal-600">
           <i class="fa-sm fa-solid fa-map-location-dot"></i>
           <%= f.label :place, t('activerecord.attributes.live.place'), class: "text-sm" %><br>
@@ -22,22 +29,22 @@
       </div>
     <% end %>
 
-    <% if @live.date.present? %>
-      <div class="font-light ml-8 xl:ml-12 mb-1">
-        <div class="text-teal-600">
-          <i class="fa-sm fa-regular fa-calendar"></i>
-          <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
-        </div>
+    <div class="space-x-12 flex flex-row">
+      <% if @live.date.present? %>
+        <div class="font-light ml-8 xl:ml-10 mb-1">
+          <div class="text-teal-600">
+            <i class="fa-sm fa-regular fa-calendar"></i>
+            <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
+          </div>
 
-        <div class="text-lg text-gray-600">
-          <%= @live.date.strftime('%Y年%m月%d日') %>
+          <div class="text-lg text-gray-600">
+            <%= @live.date.strftime('%Y年%m月%d日') %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
 
-    <div class="space-x-12 flex flex-row mb-1">
       <% if @live.open_time.present? %>
-        <div class="font-light ml-8 xl:ml-12">
+        <div class="font-light ml-8 xl:ml-10">
           <div class="text-teal-600">
             <i class="fa-sm fa-regular fa-clock"></i>
             <%= f.label :open_time, class: "text-sm" %>
@@ -50,7 +57,7 @@
       <% end %>
 
       <% if @live.start_time.present? %>
-        <div class="font-light ml-8 xl:ml-12">
+        <div class="font-light ml-8 xl:ml-10">
           <div class="text-teal-600">
             <i class="fa-sm fa-regular fa-clock"></i>
             <%= f.label :start_time, class: "text-sm" %>
@@ -64,7 +71,7 @@
     </div>
 
     <% if @live.departure_time.present? %>
-      <div class="font-light ml-8 xl:ml-12 mb-1">
+      <div class="font-light ml-8 xl:ml-10 mb-1">
         <div class="text-amber-600">
           <i class="fa-sm fa-regular fa-calendar"></i>
           <%= f.label :departure_time, class: "text-sm" %>
@@ -77,3 +84,5 @@
     <% end %>
   <% end %>
 <% end %>
+
+<p class="xl:hidden ml-4 font-light text-gray-300">______________________________________________________________</p>

@@ -1,0 +1,72 @@
+<% @posts.each do |post| %>
+  <% if post.live.present? %>
+    <div class="shadow-md hover:shadow-lg ring-2 ring-amber-100 bg-white rounded-md mb-8 mx-4 w-[25rem] h-42">
+      <%= link_to life_post_path(post.live, post) do %>
+        <%= form_with model: @live, url: posts_path, local: true, class: "text-gray-600" do |f| %>
+          <div class="text-xl flex justify-center">
+            <div class="mt-2 mx-6" style="word-break: break-all;">
+              <%= truncate(post.live.title, length: 13) %>
+            </div>
+          </div>
+
+          <div class="mx-6" style="word-break: break-all;">
+            <div class="text-teal-600">
+              <i class="fa-sm fa-solid fa-map-location-dot"></i>
+              <%= f.label :place, t('activerecord.attributes.live.place'), class: "text-sm" %><br>
+            </div>
+
+            <% if post.live.place.present? %>
+              <div class="text-lg">
+                <%= truncate(post.live.place, length: 13) %>
+              </div>
+            <% else %>
+              <p class="text-lg text-gray-400">指定なし</p>
+            <% end %>
+          </div>
+
+          <div class="font-light ml-6 mt-1 mb-2">
+            <div class="text-teal-600">
+              <i class="fa-sm fa-regular fa-calendar"></i>
+              <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
+            </div>
+
+            <% if post.live.date.present? %>
+              <div class="text-lg">
+                <%= post.live.date.strftime('%Y年%m月%d日') %>
+              </div>
+            <% else %>
+              <p class="text-lg text-gray-400">指定なし</p>
+            <% end %>
+          </div>
+
+          <!-- ユーザー情報 -->
+          <div class="flex felx-col">
+            <div class="ml-6 mb-2">
+              <% if post.is_anonymous? %>
+                <%= image_tag 'logo.png', style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" %>
+              <% else %>
+                <% if post.user.profile %>
+                  <%= image_tag post.user.profile.avatar.url, style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" %>
+                <% else %>
+                  <%= image_tag 'logo.png', style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" %>
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="ml-4 mt-1">
+              <% if post.is_anonymous? %>
+                匿名 さん
+              <% else %>
+                <% if post.user.profile %>
+                  <%= post.user.profile.name %> さん
+                <% else %>
+                  名無し さん
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

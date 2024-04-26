@@ -25,7 +25,7 @@
   }
 
   .today {
-    background-color: #fffbda;
+    border: 2px solid #ffd27f;
   }
 
   .prev-month {

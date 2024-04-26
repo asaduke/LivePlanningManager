@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_02_141904) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_19_061227) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_02_141904) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.bigint "post_id"
+    t.index ["post_id"], name: "index_lives_on_post_id"
     t.index ["user_id"], name: "index_lives_on_user_id"
   end
 
@@ -36,6 +38,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_02_141904) do
     t.bigint "user_id", null: false
     t.index ["live_id"], name: "index_packing_items_on_live_id"
     t.index ["user_id"], name: "index_packing_items_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "comment"
+    t.boolean "is_anonymous"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "live_id"
+    t.index ["live_id"], name: "index_posts_on_live_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -61,8 +74,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_02_141904) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
+  add_foreign_key "lives", "posts"
   add_foreign_key "lives", "users"
   add_foreign_key "packing_items", "lives", column: "live_id"
   add_foreign_key "packing_items", "users"
+  add_foreign_key "posts", "lives", column: "live_id"
+  add_foreign_key "posts", "users"
   add_foreign_key "profiles", "users"
 end

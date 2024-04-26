@@ -3,8 +3,9 @@ class User < ApplicationRecord
 
   has_many :lives, class_name: 'Live', dependent: :destroy
   has_many :packing_items, dependent: :destroy
-  has_one :profile
+  has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
+  has_many :posts, dependent: :destroy
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

@@ -1,0 +1,32 @@
+<%= form_with model: [@live, @post], url: life_posts_path, local: true, class: "w-96" do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="text-amber-500">
+    <%= f.label :comment %>
+  </div>
+
+  <%= f.text_area :comment, class: "text-gray-600 mb-1 py-1 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50", placeholder: "コメントがあれば記入してください。" %>
+
+  <div class="mt-2">
+    <%= f.label :is_anonymous, class: "text-amber-500" %>
+    <div class="flex items-center">
+      <%= f.radio_button :is_anonymous, true, class: "mr-1" %>
+      <span class="text-gray-600">はい</span>
+    </div>
+
+    <div class="flex items-center">
+      <%= f.radio_button :is_anonymous, false, checked: true, class: "mr-1" %>
+      <span class="text-gray-600">いいえ</span>
+    </div>
+  </div>
+
+  <div class="mt-4 text-sm flex flex-col justify-center">
+    <p class="text-gray-600">この情報でよろしければ、投稿ボタンを押してください。</p>
+    <p class="text-red-500">※投稿するとライブ情報・リストが編集できなくなります。</p>
+  </div>
+
+  <div class="mt-1 flex flex-col justify-center items-center">
+    <%= f.submit "投稿", class: "mb-2 btn bg-green-300 text-green-700 text-sm font-light hover:ring-2 ring-green-300 hover:bg-green-400" %>
+    <%=link_to "破棄して戻る", @live, class: "mb-2 text-gray-400 hover:text-gray-500 underline" %>
+  </div>
+<% end %>
