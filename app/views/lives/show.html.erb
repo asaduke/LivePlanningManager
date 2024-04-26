@@ -4,9 +4,15 @@
       <div class="xl:flex xl:flex-row">
         <div class="xl:w-3/5">
           <!-- ドロップダウンメニュー(xlになったら非表示) -->
-          <div class="xl:hidden float-right mt-3">
-            <%= render 'lives/dropdown_menu' %>
-          </div>
+          <% if @live.post.present? %>
+            <div class="xl:hidden float-right">
+              <%= render 'lives/dropdown_menu' %>
+            </div>
+          <% else %>
+            <div class="xl:hidden float-right mt-3">
+              <%= render 'lives/dropdown_menu' %>
+            </div>
+          <% end %>
 
           <!-- ライブ登録詳細 -->
           <%= render 'lives/show_form', { live: @live } %>
@@ -18,12 +24,21 @@
             <%= render 'lives/dropdown_menu' %>
           </div>
 
-          <!-- 持ち物リストフォーム -->
-          <%= render 'packing_items/form', { packing_item: @packing_item, live: @live } %>
+          <% if @live.post.present? %>
+            <!-- アイテム情報 -->
+            <div class="mt-6 xl:mt-12">
+              <% @packing_items.each do |packing_item| %>
+                <%= render 'packing_items/packing_item', { packing_item: packing_item } %>
+              <% end %>
+            </div>
+          <% else %>
+            <!-- 持ち物リストフォーム -->
+            <%= render 'packing_items/form', { packing_item: @packing_item, live: @live } %>
 
-          <!-- 持ち物リスト -->
-          <% @packing_items.each do |packing_item| %>
-            <%= render 'packing_items/packing_item', { packing_item: packing_item } %>
+            <!-- 持ち物リスト -->
+            <% @packing_items.each do |packing_item| %>
+              <%= render 'packing_items/packing_item', { packing_item: packing_item } %>
+            <% end %>
           <% end %>
         </div>
       </div>

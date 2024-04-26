@@ -1,41 +1,89 @@
-<%= form_with model: @post, url: life_post_path, local: true, class: "w-96" do |f| %>
-  <div class="flex felx-col">
-    <div class="mt-6">
-      <% if @post.is_anonymous? %>
-        <%= image_tag 'logo.png', style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" %>
-      <% else %>
-        <% if @post.user.profile %>
-          <%= image_tag @post.user.profile.avatar_url, style: "width: 40px; height: 40px; object-fit: cover; border-radius: 50%;" %>
+<% if @post.user == current_user %>
+  <%= form_with model: @post, url: life_post_path, local: true, class: "w-[25rem]" do |f| %>
+    <div class="flex felx-col">
+      <div class="ml-6 mt-6">
+        <% if @post.is_anonymous? %>
+          <%= image_tag 'logo.png', style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" %>
         <% else %>
-          <%= image_tag 'logo.png', style: "width: 40px; height: 40px; object-fit: cover; border-radius: 50%;" %>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="ml-4 mt-7">
-      <% if @post.is_anonymous? %>
-        匿名 さん
-      <% else %>
-        <div class="mt-1">
           <% if @post.user.profile %>
-            <%= @profile.name %> さん
+            <%= image_tag @post.user.profile.avatar_url, style: "width: 40px; height: 40px; object-fit: cover; border-radius: 50%;" %>
           <% else %>
-            名無し さん
+            <%= image_tag 'logo.png', style: "width: 40px; height: 40px; object-fit: cover; border-radius: 50%;" %>
           <% end %>
+        <% end %>
+      </div>
+
+      <div class="ml-4 mt-7">
+        <% if @post.is_anonymous? %>
+          匿名 さん
+        <% else %>
+          <div class="mt-1">
+            <% if @post.user.profile %>
+              <%= @profile.name %> さん
+            <% else %>
+              名無し さん
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <% if @post.comment.present? %>
+      <div class="ml-6 mb-2 form-group">
+        <div class="mt-4 text-amber-500">
+          <%= f.label :comment %>
         </div>
-      <% end %>
-    </div>
-  </div>
 
-  <% if @post.comment.present? %>
-    <div class="mx-4 mb-4 form-group">
-      <div class="mt-4 text-amber-500">
-        <%= f.label :comment %>
+        <div class="text-gray-600 w-full">
+          <%= @post.comment %>
+        </div>
       </div>
-
-      <div class="text-gray-600 w-full">
-        <%= @post.comment %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
+
+  <p class="ml-8 font-light text-gray-300">__________________________________________________________</p>
+<% else %>
+  <%= form_with model: @post, url: life_post_path, local: true, class: "w-[25rem]" do |f| %>
+    <div class="flex felx-col">
+      <div class="ml-2 mt-6">
+        <% if @post.is_anonymous? %>
+          <%= image_tag 'logo.png', style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" %>
+        <% else %>
+          <% if @post.user.profile %>
+            <%= image_tag @post.user.profile.avatar_url, style: "width: 40px; height: 40px; object-fit: cover; border-radius: 50%;" %>
+          <% else %>
+            <%= image_tag 'logo.png', style: "width: 40px; height: 40px; object-fit: cover; border-radius: 50%;" %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="ml-4 mt-7">
+        <% if @post.is_anonymous? %>
+          匿名 さん
+        <% else %>
+          <div class="mt-1">
+            <% if @post.user.profile %>
+              <%= @profile.name %> さん
+            <% else %>
+              名無し さん
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <% if @post.comment.present? %>
+      <div class="ml-2 mb-2 form-group">
+        <div class="mt-4 text-amber-500">
+          <%= f.label :comment %>
+        </div>
+
+        <div class="text-gray-600 w-full">
+          <%= @post.comment %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <p class="ml-1 font-light text-gray-300">__________________________________________________________</p>
 <% end %>

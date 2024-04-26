@@ -4,17 +4,19 @@
   </div>
 
   <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-36 text-gray-600">
-    <% if @live.post.present? %>
-      <li class="my-2 text-gray-400 flex text-center">
-        投稿済み
-      </li>
-    <% else %>
-      <li class="text-gray-600 flex justify-center">
-        <%=link_to new_life_post_path(@live) do %>
-          <i class="fa-solid fa-scroll"></i>
-          投稿する
-        <% end %>
-      </li>
+    <% if @live.packing_items.present? %>
+      <% if @live.post.present? %>
+        <li class="my-2 text-gray-400 flex text-center">
+          投稿済み
+        </li>
+      <% else %>
+        <li class="text-gray-600 flex justify-center">
+          <%=link_to new_life_post_path(@live) do %>
+            <i class="fa-solid fa-scroll"></i>
+            投稿する
+          <% end %>
+        </li>
+      <% end %>
     <% end %>
 
     <li class="text-red-400 flex justify-center">

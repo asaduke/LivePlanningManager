@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(id: :desc)
     @profiles = @posts.map { |post| post.user.profile }
   end
 
