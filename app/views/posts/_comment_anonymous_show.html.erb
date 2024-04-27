@@ -1,5 +1,5 @@
 <% if @post.user == current_user %>
-  <%= form_with model: @post, url: life_post_path, local: true, class: "w-[25rem]" do |f| %>
+  <%= form_with model: @post, url: life_post_path, local: true, class: "w-80 xl:w-[26rem]" do |f| %>
     <div class="flex felx-col">
       <div class="ml-6 mt-6">
         <% if @post.is_anonymous? %>
@@ -34,16 +34,16 @@
           <%= f.label :comment %>
         </div>
 
-        <div class="text-gray-600 w-full">
+        <div class="w-80 xl:w-[25rem] text-gray-600 w-full" style="word-break: break-all;">
           <%= @post.comment %>
         </div>
       </div>
     <% end %>
   <% end %>
 
-  <p class="ml-8 font-light text-gray-300">__________________________________________________________</p>
+  <p class="ml-8 font-light text-gray-300">______________________________________________</p>
 <% else %>
-  <%= form_with model: @post, url: life_post_path, local: true, class: "w-[25rem]" do |f| %>
+  <%= form_with model: @post, url: life_post_path, local: true, class: "w-80 xl:w-[26rem]" do |f| %>
     <div class="flex felx-col">
       <div class="ml-2 mt-6">
         <% if @post.is_anonymous? %>
@@ -78,12 +78,12 @@
           <%= f.label :comment %>
         </div>
 
-        <div class="text-gray-600 w-full">
+        <div class="w-80 xl:w-[25rem] text-gray-600 w-full" style="word-break: break-all;">
           <%= @post.comment %>
         </div>
       </div>
     <% end %>
   <% end %>
 
-  <p class="ml-1 font-light text-gray-300">__________________________________________________________</p>
+  <p class="ml-1 font-light text-gray-300">______________________________________________</p>
 <% end %>
