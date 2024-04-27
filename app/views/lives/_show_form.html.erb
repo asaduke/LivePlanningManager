@@ -2,7 +2,7 @@
   <%= form_with model: @live, local: true, class: "text-gray-600" do |f| %>
     <!-- 投稿後は編集できないように -->
     <% if @live.post.present? %>
-      <div class="text-gray-600 mt-4 mb-2 pl-7 pr-2 text-xl flex justify-center xl:pl-0" style="word-break: break-all;">
+      <div class="text-gray-600 mt-4 mb-2 pl-7 pr-2 text-xl flex justify-center" style="word-break: break-all;">
         <%= @live.title %>
       </div>
     <% else %>
@@ -29,20 +29,20 @@
       </div>
     <% end %>
 
-    <div class="space-x-12 flex flex-row">
-      <% if @live.date.present? %>
-        <div class="font-light ml-8 xl:ml-10 mb-1">
-          <div class="text-teal-600">
-            <i class="fa-sm fa-regular fa-calendar"></i>
-            <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
-          </div>
-
-          <div class="text-lg text-gray-600">
-            <%= @live.date.strftime('%Y年%m月%d日') %>
-          </div>
+    <% if @live.date.present? %>
+      <div class="font-light ml-8 xl:ml-10 mb-1">
+        <div class="text-teal-600">
+          <i class="fa-sm fa-regular fa-calendar"></i>
+          <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
         </div>
-      <% end %>
 
+        <div class="text-lg text-gray-600">
+          <%= @live.date.strftime('%Y年%m月%d日') %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="space-x-12 flex flex-row">
       <% if @live.open_time.present? %>
         <div class="font-light ml-8 xl:ml-10">
           <div class="text-teal-600">
@@ -85,4 +85,4 @@
   <% end %>
 <% end %>
 
-<p class="xl:hidden ml-4 font-light text-gray-300">______________________________________________________________</p>
+<p class="xl:hidden flex justify-center font-light text-gray-300">______________________________________________</p>

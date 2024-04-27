@@ -8,12 +8,12 @@
     <!-- ライブ情報 -->
     <div class="flex flex-col items-center">
       <%= form_with model: [@live, @post], url: life_posts_path, local: true, class: "text-gray-600" do |f| %>
-        <div class="flex justify-center text-gray-600 xl:ml-4 px-4 text-xl mt-4 mb-1 w-[26rem]" style="word-break: break-all;">
+        <div class="flex justify-center text-gray-600 xl:ml-4 px-4 text-xl mt-4 mb-1 w-80 xl:w-[26rem]" style="word-break: break-all;">
           <%= @live.title %>
         </div>
 
         <% if @live.place.present? %>
-          <div class="ml-1 xl:mx-8 mb-1 ml-4 w-96" style="word-break: break-all;">
+          <div class="ml-1 xl:mx-8 mb-1 ml-4 w-80 xl:w-[26rem]" style="word-break: break-all;">
             <div class="text-teal-600">
               <i class="fa-sm fa-solid fa-map-location-dot"></i>
               <%= f.label :place, t('activerecord.attributes.live.place'), class: "text-sm" %><br>
@@ -25,22 +25,22 @@
           </div>
         <% end %>
 
-        <div class="space-x-12 flex flex-row mb-1">
-          <% if @live.date.present? %>
-            <div class="font-light ml-3 xl:ml-8 mb-1">
-              <div class="text-teal-600">
-                <i class="fa-sm fa-regular fa-calendar"></i>
-                <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
-              </div>
-
-              <div class="text-lg text-gray-600">
-                <%= @live.date.strftime('%Y年%m月%d日') %>
-              </div>
+        <% if @live.date.present? %>
+          <div class="font-light ml-4 xl:ml-8 mb-1">
+            <div class="text-teal-600">
+              <i class="fa-sm fa-regular fa-calendar"></i>
+              <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
             </div>
-          <% end %>
 
+            <div class="text-lg text-gray-600">
+              <%= @live.date.strftime('%Y年%m月%d日') %>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="space-x-12 flex flex-row mb-1">
           <% if @live.open_time.present? %>
-            <div class="font-light xl:ml-8">
+            <div class="font-light ml-4 xl:ml-8">
               <div class="text-teal-600">
                 <i class="fa-sm fa-regular fa-clock"></i>
                 <%= f.label :open_time, class: "text-sm" %>
@@ -69,10 +69,10 @@
     </div>
 
     <!-- アイテム情報 -->
-    <div class="mt-2 mb-4 xl:mr-2 xl:mt-6 flex flex-col items-center">
+    <div class="mt-2 mb-4 xl:mt-6 flex flex-col items-center">
       <% @packing_items.each do |packing_item| %>
         <%= form_with model: packing_item, url: life_posts_path, local: true do |f| %>
-          <div class="ring-2 ring-sky-100 bg-sky-50 w-96 mx-5 py-2">
+          <div class="ring-2 ring-sky-100 bg-sky-50 w-80 xl:w-[26rem] mx-5 py-2">
             <div class="text-gray-600 ml-4 text-base">
               <%= packing_item.name %>
             </div>
@@ -83,7 +83,7 @@
   </div>
 </div>
 
-<p class="xl:hidden flex justify-center font-light text-gray-300">______________________________________________________________</p>
+<p class="xl:hidden flex justify-center font-light text-gray-300">______________________________________________</p>
 
 <!-- 投稿フォーム(xlになったら非表示) -->
 <div class="xl:hidden flex justify-center mb-2 mt-4">
