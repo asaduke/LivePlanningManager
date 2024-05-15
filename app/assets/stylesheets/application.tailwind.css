@@ -39,3 +39,12 @@
     background-color: #eafff9;
   }
 }
+
+.flash-message {
+  animation: fadeout 4s forwards; /* Start the fade out after 4s */
+}
+
+@keyframes fadeout {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
