@@ -2,7 +2,8 @@ class LivesController < ApplicationController
   before_action :set_live, only: %i[show edit update destroy]
 
   def index
-    @lives = current_user.lives.all.order(departure_time: :desc)
+    @q = current_user.lives.ransack(params[:q])
+    @lives = @q.result(distinct: true).includes(:user).order(departure_time: :desc)
   end
 
   def new

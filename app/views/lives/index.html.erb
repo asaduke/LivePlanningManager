@@ -1,17 +1,34 @@
-<div class="bg-sky-50 mx-auto px-4 py-16 min-h-screen">
-  <% if @lives.present? %>
-    <!-- 持ち物リスト一覧 -->
-    <div class="flex flex-wrap justify-center">
-      <%= render 'live_card', { live: @live } %>
-    </div>
-  <% else %>
-    <div class="pt-20 flex justify-center text-center flex-col text-gray-600">
-      <p>まだライブが登録されていません。</p>
-      <p>ライブ登録をして、持ち物リストを作成しよう！</p>
-      <p>↓</p>
-    </div>
-    <div class="pt-4 flex justify-center items-center">
-      <%= link_to 'ライブ登録', new_life_path, class: "btn bg-teal-100 text-teal-500 text-xl font-light hover:ring-2 ring-teal-100 hover:bg-teal-200" %>
-    </div>
-  <% end %>
+<div class="bg-sky-50 mx-auto px-4 min-h-screen">
+  <div class="flex justify-center pt-6">
+    <%= search_form_for @q, url: lives_path do |f| %>
+      <div class="flex flex-row">
+        <%= f.search_field :title_or_place_cont, class: "text-gray-600 mb-1 py-1 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50", placeholder: "タイトル・会場で検索" %>
+        <%= f.submit "検索", class: "btn bg-sky-300 text-sky-700 text-sm font-light hover:ring-2 ring-sky-300 hover:bg-sky-400" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pt-6">
+    <% if @q.present? %>
+      <% if @lives.present? %>
+        <!-- 持ち物リスト一覧 -->
+        <div class="flex flex-wrap justify-center">
+          <%= render 'live_card', { live: @live } %>
+        </div>
+      <% else %>
+        <div class="pt-20 flex justify-center text-center flex-col text-gray-600">
+          <p>まだライブが登録されていません。</p>
+          <p>ライブ登録をして、持ち物リストを作成しよう！</p>
+          <p>↓</p>
+        </div>
+        <div class="pt-4 flex justify-center items-center">
+          <%= link_to 'ライブ登録', new_life_path, class: "btn bg-teal-100 text-teal-500 text-xl font-light hover:ring-2 ring-teal-100 hover:bg-teal-200" %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="pt-20 flex justify-center text-center flex-col text-gray-600">
+        <p>１件もありません。</p>
+      </div>
+    <% end %>
+  </div>
 </div>
