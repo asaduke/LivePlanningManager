@@ -3,7 +3,7 @@
   <div class="flex justify-center pt-6">
     <%= search_form_for @q, url: posts_path do |f| %>
       <div class="flex flex-row">
-        <%= f.search_field :live_title_or_live_place_cont, class: "text-gray-600 mb-1 py-1 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50", placeholder: "タイトル・会場で検索" %>
+        <%= f.search_field :live_title_or_live_place_cont, class: "text-gray-600 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50", placeholder: "タイトル・会場で検索" %>
         <%= f.submit "検索", class: "btn bg-sky-300 text-sky-700 text-sm font-light hover:ring-2 ring-sky-300 hover:bg-sky-400" %>
       </div>
     <% end %>
