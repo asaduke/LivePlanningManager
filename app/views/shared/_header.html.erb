@@ -13,6 +13,9 @@
   <!-- メニュー -->
   <% if current_user %>
     <%= link_to 'ライブ登録', new_life_path, class: "btn bg-teal-100 text-teal-500 text-lg font-light hover:ring-2 ring-teal-100 hover:bg-teal-200" %>
+    <%= link_to favorites_posts_path, class: "btn bg-pink-100 text-pink-400 text-lg font-light hover:ring-2 ring-pink-100 hover:bg-pink-200" do %>
+      <i class="fa-solid fa-heart"></i>
+    <% end %>
   <% else %>
     <!-- 画面が小さい時は表示、大きい時は非表示 -->
     <div class="lg:hidden">
