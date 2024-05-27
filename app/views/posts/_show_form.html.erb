@@ -1,67 +1,67 @@
 <% if @post.user == current_user %>
-<div class="flex flex-col items-center">
-  <%= render 'comment_anonymous_show' %>
+  <div class="flex flex-col items-center">
+    <%= render 'comment_anonymous_show' %>
 
-  <%= form_with model: @live, local: true, class: "text-gray-600" do |f| %>
-    <div class="flex justify-center w-80 xl:w-[26rem] ml-8 text-gray-600 text-xl mt-4 mb-2" style="word-break: break-all;">
-      <%= @live.title %>
-    </div>
-
-    <% if @live.place.present? %>
-      <div class="ml-9 mb-1 w-80 xl:w-[26rem]" style="word-break: break-all;">
-        <div class="text-teal-600">
-          <i class="fa-sm fa-solid fa-map-location-dot"></i>
-          <%= f.label :place, t('activerecord.attributes.live.place'), class: "text-sm" %><br>
-        </div>
-
-        <div class="text-lg text-gray-600">
-          <%= @live.place %>
-        </div>
+    <%= form_with model: @live, local: true, class: "text-gray-600" do |f| %>
+      <div class="flex justify-center w-80 xl:w-[26rem] ml-8 text-gray-600 text-xl mt-4 mb-2" style="word-break: break-all;">
+        <%= @live.title %>
       </div>
-    <% end %>
 
-    <% if @live.date.present? %>
-      <div class="font-light ml-9 mb-1">
-        <div class="text-teal-600">
-          <i class="fa-sm fa-regular fa-calendar"></i>
-          <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
-        </div>
-
-        <div class="text-lg text-gray-600">
-          <%= @live.date.strftime('%Y年%m月%d日') %>
-        </div>
-      </div>
-    <% end %>
-
-    <div class="space-x-10 flex flex-row mb-1">
-      <% if @live.open_time.present? %>
-        <div class="font-light ml-9">
+      <% if @live.place.present? %>
+        <div class="ml-9 mb-1 w-80 xl:w-[26rem]" style="word-break: break-all;">
           <div class="text-teal-600">
-            <i class="fa-sm fa-regular fa-clock"></i>
-            <%= f.label :open_time, class: "text-sm" %>
+            <i class="fa-sm fa-solid fa-map-location-dot"></i>
+            <%= f.label :place, t('activerecord.attributes.live.place'), class: "text-sm" %><br>
           </div>
 
           <div class="text-lg text-gray-600">
-            <%= @live.open_time.strftime('%H時%M分') %>
+            <%= @live.place %>
           </div>
         </div>
       <% end %>
 
-      <% if @live.start_time.present? %>
-        <div class="font-light ml-9">
+      <% if @live.date.present? %>
+        <div class="font-light ml-9 mb-1">
           <div class="text-teal-600">
-            <i class="fa-sm fa-regular fa-clock"></i>
-            <%= f.label :start_time, class: "text-sm" %>
+            <i class="fa-sm fa-regular fa-calendar"></i>
+            <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
           </div>
 
           <div class="text-lg text-gray-600">
-            <%= @live.start_time.strftime('%H時%M分') %>
+            <%= @live.date.strftime('%Y年%m月%d日') %>
           </div>
         </div>
       <% end %>
-    </div>
-  <% end %>
-</div>
+
+      <div class="space-x-10 flex flex-row mb-1">
+        <% if @live.open_time.present? %>
+          <div class="font-light ml-9">
+            <div class="text-teal-600">
+              <i class="fa-sm fa-regular fa-clock"></i>
+              <%= f.label :open_time, class: "text-sm" %>
+            </div>
+
+            <div class="text-lg text-gray-600">
+              <%= @live.open_time.strftime('%H時%M分') %>
+            </div>
+          </div>
+        <% end %>
+
+        <% if @live.start_time.present? %>
+          <div class="font-light ml-9">
+            <div class="text-teal-600">
+              <i class="fa-sm fa-regular fa-clock"></i>
+              <%= f.label :start_time, class: "text-sm" %>
+            </div>
+
+            <div class="text-lg text-gray-600">
+              <%= @live.start_time.strftime('%H時%M分') %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 <% else %>
   <div class="flex flex-col items-center">
     <%= render 'comment_anonymous_show' %>
