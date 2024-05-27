@@ -1,0 +1,101 @@
+<div class="bg-sky-50 mx-auto px-4 min-h-screen">
+  <div class="pt-6">
+    <% if @favorited_posts.present? %>
+      <div class="flex flex-wrap justify-center">
+        <% @favorited_posts.each do |post| %>
+          <% if post.live.present? %>
+            <div class="shadow-md hover:shadow-lg ring-2 ring-amber-100 bg-white rounded-md mb-8 mx-4 w-[25rem] h-42">
+              <%= link_to life_post_path(post.live, post) do %>
+                <%= form_with model: @live, url: favorites_posts_path, local: true, class: "text-gray-600" do |f| %>
+                  <div class="text-xl flex justify-center">
+                    <div class="mt-2 mx-6" style="word-break: break-all;">
+                      <%= truncate(post.live.title, length: 13) %>
+                    </div>
+                  </div>
+
+                  <div class="mx-6" style="word-break: break-all;">
+                    <div class="text-teal-600">
+                      <i class="fa-sm fa-solid fa-map-location-dot"></i>
+                      <%= f.label :place, t('activerecord.attributes.live.place'), class: "text-sm" %><br>
+                    </div>
+
+                    <% if post.live.place.present? %>
+                      <div class="text-lg">
+                        <%= truncate(post.live.place, length: 13) %>
+                      </div>
+                    <% else %>
+                      <p class="text-lg text-gray-400">指定なし</p>
+                    <% end %>
+                  </div>
+
+                  <div class="font-light ml-6 mt-1 mb-2">
+                    <div class="text-teal-600">
+                      <i class="fa-sm fa-regular fa-calendar"></i>
+                      <%= f.label :date, t('activerecord.attributes.live.date'), class: "text-sm" %><br>
+                    </div>
+
+                    <% if post.live.date.present? %>
+                      <div class="text-lg">
+                        <%= post.live.date.strftime('%Y年%m月%d日') %>
+                      </div>
+                    <% else %>
+                      <p class="text-lg text-gray-400">指定なし</p>
+                    <% end %>
+                  </div>
+                <% end %>
+              <% end %>
+
+              <div class="flex justify-between">
+                <!-- ユーザー情報 -->
+                <div class="flex felx-col">
+                  <div class="ml-6 mb-2">
+                    <% if post.is_anonymous? %>
+                      <%= image_tag 'logo.png', style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" %>
+                    <% else %>
+                      <% if post.user.profile %>
+                        <%= image_tag post.user.profile.avatar.url, style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" %>
+                      <% else %>
+                        <%= image_tag 'logo.png', style: "width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" %>
+                      <% end %>
+                    <% end %>
+                  </div>
+
+                  <div class="ml-4 mt-1">
+                    <% if post.is_anonymous? %>
+                      匿名 さん
+                    <% else %>
+                      <% if post.user.profile %>
+                        <%= post.user.profile.name %> さん
+                      <% else %>
+                        名無し さん
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+
+                <!-- お気に入り -->
+                <div class="pt-1 pr-4">
+                  <%= turbo_frame_tag 'favorite' do %>
+                    <% if current_user.favorited_posts.include?(post) %>
+                      <%= button_to post_favorite_path(post_id: post.id), remote: true, method: :delete, data: { turbo_action: 'replace' } do %>
+                        <i class="fa-solid fa-heart text-pink-400"></i>
+                      <% end %>
+                    <% else %>
+                      <%= button_to post_favorite_path(post_id: post.id), remote: true, method: :post, data: { turbo_action: 'replace' } do %>
+                        <i class="fa-regular fa-heart text-pink-300"></i>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="pt-10 flex justify-center text-center flex-col text-gray-600">
+        <p>まだお気に入りのリストがありません。</p>
+      </div>
+    <% end %>
+  </div>
+</div>

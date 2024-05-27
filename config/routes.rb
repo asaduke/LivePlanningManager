@@ -17,7 +17,10 @@ Rails.application.routes.draw do
     end
     resources :posts, only: %i[new create show destroy]
   end
-  resources :posts, only: %i[index]
+  resources :posts, only: %i[index] do
+    get 'favorites', on: :collection
+    resource :favorite, only: %i[create destroy]
+  end
   resources :others, only: %i[show], shallow: true  do
     resources :profiles, only: %i[show edit update]
   end

@@ -46,6 +46,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def favorites
+    @favorited_posts = current_user.favorited_posts
+  end
+
   private
 
   def post_params

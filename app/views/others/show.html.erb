@@ -1,7 +1,21 @@
 <div class="bg-sky-50 mx-auto px-4 py-6 min-h-screen">
-  <!-- プロフィール -->
-  <%= render 'profiles/show' %>
+  <div class="xl:flex flex-row justify-center">
+    <div class="xl:pr-4">
+      <!-- プロフィール -->
+      <%= render 'profiles/show' %>
 
-  <!-- カレンダー -->
-  <%= render 'calendar', { lives: @lives } %>
+      <!-- カレンダー -->
+      <%= render 'calendar', { lives: @lives } %>
+    </div>
+
+    <div class="xl:pl-4">
+    <p class="pt-4 flex justify-center font-thin text-gray-400">----------------------------------------------</p>
+      <div class="flex justify-center">
+        <%= link_to logout_path, data: { turbo_method: :delete }, class: "rounded-md w-80 py-2 pl-3 text-red-400 text-md font-light hover:bg-red-50" do %>
+          ログアウト
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
