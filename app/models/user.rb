@@ -22,11 +22,11 @@ class User < ApplicationRecord
   end
 
   def favorite(post)
-    favorited_posts << post
+    favorited_posts << post unless favorite?(post)
   end
 
   def unfavorite(post)
-    favorited_posts.delete post
+    favorited_posts.delete(post) if favorite?(post)
   end
 
   def favorite?(post)

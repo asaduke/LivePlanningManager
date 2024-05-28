@@ -75,7 +75,7 @@
 
                 <!-- お気に入り -->
                 <div class="pt-1 pr-4">
-                  <%= turbo_frame_tag 'favorite' do %>
+                  <%= turbo_frame_tag "favorite_#{post.id}" do %>
                     <% if current_user.favorited_posts.include?(post) %>
                       <%= button_to post_favorite_path(post_id: post.id), remote: true, method: :delete, data: { turbo_action: 'replace' } do %>
                         <i class="fa-solid fa-heart text-pink-400"></i>
@@ -94,7 +94,7 @@
       </div>
     <% else %>
       <div class="pt-10 flex justify-center text-center flex-col text-gray-600">
-        <p>まだお気に入りのリストがありません。</p>
+        <p>まだ「みんなのリスト」のお気に入りがありません。</p>
       </div>
     <% end %>
   </div>
