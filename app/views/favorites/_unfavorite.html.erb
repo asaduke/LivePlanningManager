@@ -1,0 +1,3 @@
+<%= button_to post_favorite_path(post_id: post.id), method: :delete, data: { turbo_action: 'replace' } do %>
+  <i class="fa-solid fa-heart text-pink-400"></i>
+<% end %>
