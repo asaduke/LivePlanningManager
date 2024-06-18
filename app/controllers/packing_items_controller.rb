@@ -40,6 +40,7 @@ class PackingItemsController < ApplicationController
 
   def toggle
     @packing_item = PackingItem.find(params[:id])
+    @live = @packing_item.live
     @packing_item.update(is_checked: !@packing_item.is_checked)
 
     respond_to do |format|
