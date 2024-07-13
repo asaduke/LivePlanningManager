@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete "logout", to: "user_sessions#destroy"
 
   get "privacy", to: "privacy#privacy"
+  get "terms", to: "terms#terms"
 
   resources :users, only: %i[new create]
   resources :password_resets, only: %i[new create edit update]

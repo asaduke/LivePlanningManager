@@ -1,7 +1,7 @@
-<div class="bg-indigo-50 mx-auto px-4 py-6 min-h-screen">
+<div class="bg-gray-50 mx-auto px-4 py-6 min-h-screen">
   <div class="flex justify-center">
-    <div class="shadow-lg ring-2 ring-blue-100 bg-blue-50 rounded-md w-full md:w-5/6 lg:w-3/5 flex fustify-center items-center flex-col">
-      <h1 class="font-light text-sky-600 text-3xl mt-8 text-center">新規登録</h1>
+    <div class="shadow-lg ring-2 ring-green-200 bg-green-50 rounded-md w-full md:w-5/6 lg:w-3/5 flex fustify-center items-center flex-col">
+      <h1 class="font-light text-green-600 text-3xl mt-8 text-center">新規登録</h1>
 
       <%= form_with model: @user, local: true, class: "space-y-2 mt-8 mb-16 mx-16 w-3/4 md:w-3/5 lg:w-3/5" do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
@@ -9,7 +9,7 @@
         <%= f.fields_for :profile do |pf| %>
           <div class="form-group">
             <div class="flex flex-row">
-              <%= pf.label :name, class: "text-sky-600" %>
+              <%= pf.label :name, class: "text-green-600" %>
               <div class="ml-1 text-red-600">*</div><br>
             </div>
 
@@ -19,7 +19,7 @@
 
         <div class="form-group">
           <div class="flex flex-row">
-            <%= f.label :email, class: "text-sky-600" %>
+            <%= f.label :email, class: "text-green-600" %>
             <div class="ml-1 text-red-600">*</div><br>
           </div>
 
@@ -28,7 +28,7 @@
 
         <div class="form-group">
           <div class="flex flex-row">
-            <%= f.label :password, class: "text-sky-600" %>
+            <%= f.label :password, class: "text-green-600" %>
             <div class="ml-1 text-red-600">*</div><br>
           </div>
 
@@ -37,7 +37,7 @@
 
         <div class="form-group">
           <div class="flex flex-row">
-            <%= f.label :password_confirmation, class: "text-sky-600" %>
+            <%= f.label :password_confirmation, class: "text-green-600" %>
             <div class="ml-1 text-red-600">*</div><br>
           </div>
 
