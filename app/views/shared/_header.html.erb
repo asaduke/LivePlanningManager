@@ -20,21 +20,22 @@
     <!-- 画面が小さい時は表示、大きい時は非表示 -->
     <div class="lg:hidden">
       <div class="dropdown dropdown-bottom dropdown-end">
-        <div tabindex="0" role="button" class="btn m-1 font-light text-md bg-yellow-100 text-yellow-700 hover:ring-2 ring-yellow-100 hover:bg-yellow-200">メニュー</div>
+        <div tabindex="0" role="button" class="btn m-1 font-light text-md bg-yellow-100 text-yellow-600 hover:ring-2 ring-yellow-100 hover:bg-yellow-200">メニュー</div>
         <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-48">
-          <li><%= link_to "ログイン", login_path, class: "btn bg-sky-200 text-sky-500 text-lg font-light hover:ring-2 ring-sky-200 hover:bg-sky-300" %></li>
-          <li><%= link_to "新規登録", new_user_path, class: "btn bg-green-300 text-green-600 text-lg font-light hover:ring-2 ring-green-300 hover:bg-green-400" %></li>
-          <li><%= link_to "みんなのリスト", posts_path, class: "btn bg-amber-200 text-amber-500 text-lg font-light hover:ring-2 ring-amber-200 hover:bg-amber-300" %></li>
-          <li><%= link_to "トップページ", root_path, class: "btn bg-pink-100 text-pink-300 text-lg font-light hover:ring-2 ring-pink-100 hover:bg-pink-200" %></li>
+          <li><%= link_to "ログイン", login_path, class: "btn bg-sky-100 text-sky-500 text-lg font-light hover:ring-2 ring-sky-100 hover:bg-sky-200" %></li>
+          <li><%= link_to "新規登録", new_user_path, class: "btn bg-green-200 text-green-600 text-lg font-light hover:ring-2 ring-green-200 hover:bg-green-300" %></li>
+          <li><%= link_to "みんなのリスト", posts_path, class: "btn bg-amber-100 text-amber-500 text-lg font-light hover:ring-2 ring-amber-100 hover:bg-amber-200" %></li>
+          <li><%= link_to "トップページ", root_path, class: "btn bg-pink-100 text-pink-400 text-lg font-light hover:ring-2 ring-pink-100 hover:bg-pink-200" %></li>
         </ul>
       </div>
     </div>
 
     <!-- 画面が大きい時は表示、小さい時は非表示 -->
     <div class="hidden lg:flex lg:flex-none items-center m-1">
-      <%= link_to "みんなのリスト", '#', class: "btn bg-amber-200 text-amber-600 text-lg font-light hover:ring-2 ring-amber-200 hover:bg-amber-300" %>
-      <%= link_to "ログイン", login_path, class: "btn bg-sky-200 text-sky-600 text-lg font-light hover:ring-2 ring-sky-200 hover:bg-sky-300" %>
-      <%= link_to "新規登録", new_user_path, class: "btn bg-green-300 text-green-700 text-lg font-light hover:ring-2 ring-green-300 hover:bg-green-400" %>
+    <%= link_to "ログイン", login_path, class: "btn bg-sky-100 text-sky-500 text-lg font-light hover:ring-2 ring-sky-100 hover:bg-sky-200" %>
+      <%= link_to "新規登録", new_user_path, class: "btn bg-green-200 text-green-600 text-lg font-light hover:ring-2 ring-green-200 hover:bg-green-300" %>
+      <%= link_to "みんなのリスト", posts_path, class: "btn bg-amber-100 text-amber-500 text-lg font-light hover:ring-2 ring-amber-100 hover:bg-amber-200" %>
+      <%= link_to "トップページ", root_path, class: "btn bg-pink-100 text-pink-400 text-lg font-light hover:ring-2 ring-pink-100 hover:bg-pink-200" %>
     </div>
   <% end %>
 </header>

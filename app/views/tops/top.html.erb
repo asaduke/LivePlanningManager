@@ -1,10 +1,10 @@
 <div class="bg-gray-50 min-h-screen px-4">
-  <h1 class="pt-8 text-3xl font-medium text-sky-500 text-center">LivePlanningManager</h1>
+  <h1 class="pt-8 text-2xl font-medium text-sky-500 text-center">Live Planning Manager</h1>
 
-  <p class="text-lg text-gray-500 text-center">ライブ持ち物準備サポートアプリ</p>
+  <p class="text-md text-gray-500 text-center">ライブ持ち物準備サポートアプリ</p>
 
   <p class="mt-6 text-lg text-gray-600 text-center">
-    LivePlanningManagerは、ライブに行く際の持ち物リストの作成ができ、任意で投稿もできるアプリです。
+    Live Planning Managerは、ライブに行く際の持ち物リストの作成ができ、任意で投稿もできるアプリです。
   </p>
 
   <div class="mt-12 flex fustify-center items-center flex-col">
@@ -16,7 +16,8 @@
     </div>
   </div>
 
-  <div class="py-20 flex justify-center items-center">
+  <div class="py-20 flex flex-col justify-center items-center">
     <%= link_to "新規登録して始める", new_user_path, class: "rounded-3xl btn bg-green-200 text-green-600 text-lg font-light hover:ring-2 ring-green-200 hover:bg-green-300" %>
+    <%= link_to "ログイン", login_path, class: "w-48 rounded-3xl btn bg-sky-100 text-sky-500 text-lg font-light hover:ring-2 ring-sky-100 hover:bg-sky-200" %>
   </div>
 </div>
