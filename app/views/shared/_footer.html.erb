@@ -2,17 +2,17 @@
   <% if current_user %>
     <div class="btm-nav bg-sky-200 text-sky-600">
       <%=link_to posts_path, class: "btm-nav-item #{'active' if current_page?(posts_path)}" do %>
-        <i class="fa-solid fa-scroll" style="font-size: 1.65em;"></i>
+        <i class="fa-solid fa-scroll" style="font-size: 1.5em;"></i>
         <p class="text-xxs">みんなのリスト</p>
       <% end %>
 
       <%=link_to lives_path, class: "btm-nav-item #{'active' if current_page?(lives_path)}" do %>
-        <i class="fa-solid fa-rectangle-list" style="font-size: 1.65em;"></i>
+        <i class="fa-solid fa-rectangle-list" style="font-size: 1.5em;"></i>
         <p class="text-xxs">リスト一覧</p>
       <% end %>
 
       <%=link_to other_path(current_user), class: "btm-nav-item #{'active' if current_page?(other_path(current_user))}" do %>
-        <i class="fa-solid fa-comment-dots" style="font-size: 1.65em;"></i>
+        <i class="fa-solid fa-comment-dots" style="font-size: 1.5em;"></i>
         <p class="text-xxs">その他</p>
       <% end %>
     </div>
@@ -22,6 +22,8 @@
       <%=link_to 'プライバシーポリシー', privacy_path, class: "text-sm text-gray-400 hover:text-gray-500" %>
       <%=link_to '利用規約', terms_path, class: "text-sm text-gray-400 hover:text-gray-500" %>
     </nav>
-    <p class="ml-4 text-sm text-gray-500">©︎ 2024 Live Planning Manager</p>
+    <div class="flex justify-center md:justify-start">
+      <p class="ml-4 text-sm text-gray-500">©︎ 2024 Live Planning Manager</p>
+    </div>
   <% end %>
 </footer>
