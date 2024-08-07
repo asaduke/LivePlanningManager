@@ -1,26 +1,27 @@
-<footer class="h-16">
+<footer class="h-14">
   <% if current_user %>
     <div class="btm-nav bg-sky-200 text-sky-600">
       <%=link_to posts_path, class: "btm-nav-item #{'active' if current_page?(posts_path)}" do %>
-        <i class="py-3 fa-lg fa-solid fa-scroll"></i>
-        <p class="text-xs">みんなのリスト</p>
+        <i class="fa-solid fa-scroll" style="font-size: 1.65em;"></i>
+        <p class="text-xxs">みんなのリスト</p>
       <% end %>
 
       <%=link_to lives_path, class: "btm-nav-item #{'active' if current_page?(lives_path)}" do %>
-        <i class="py-3 fa-lg fa-solid fa-rectangle-list"></i>
-        <p class="text-xs">リスト一覧</p>
+        <i class="fa-solid fa-rectangle-list" style="font-size: 1.65em;"></i>
+        <p class="text-xxs">リスト一覧</p>
       <% end %>
 
       <%=link_to other_path(current_user), class: "btm-nav-item #{'active' if current_page?(other_path(current_user))}" do %>
-        <i class="py-3 fa-lg fa-solid fa-comment-dots"></i>
-        <p class="text-xs">その他</p>
+        <i class="fa-solid fa-comment-dots" style="font-size: 1.65em;"></i>
+        <p class="text-xxs">その他</p>
       <% end %>
     </div>
   <% else %>
-    <nav class="flex flex-wrap justify-center pt-5 ml-4 gap-x-4 md:justify-start md:gap-6">
-      <%=link_to 'お問い合わせ', 'https://x.com/_asa_asa_44', class: "text-gray-400 hover:text-gray-500" %>
-      <%=link_to 'プライバシーポリシー', privacy_path, class: "text-gray-400 hover:text-gray-500" %>
-      <%=link_to '利用規約', terms_path, class: "text-gray-400 hover:text-gray-500" %>
+    <nav class="flex flex-wrap justify-center pt-2 ml-4 gap-x-4 md:justify-start md:gap-6">
+      <%=link_to 'お問い合わせ', 'https://x.com/_asa_asa_44', class: "text-sm text-gray-400 hover:text-gray-500" %>
+      <%=link_to 'プライバシーポリシー', privacy_path, class: "text-sm text-gray-400 hover:text-gray-500" %>
+      <%=link_to '利用規約', terms_path, class: "text-sm text-gray-400 hover:text-gray-500" %>
     </nav>
+    <p class="ml-4 text-sm text-gray-500">©︎ 2024 Live Planning Manager</p>
   <% end %>
 </footer>

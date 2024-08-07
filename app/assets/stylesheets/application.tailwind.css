@@ -48,3 +48,8 @@
   from { opacity: 1; }
   to   { opacity: 0; }
 }
+
+.text-xxs {
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+}
