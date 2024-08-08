@@ -10,7 +10,7 @@
           投稿済み
         </li>
       <% else %>
-        <li class="text-gray-600 flex justify-center">
+        <li class="text-amber-500 flex justify-center">
           <%=link_to new_life_post_path(@live) do %>
             <i class="fa-solid fa-scroll"></i>
             投稿する
@@ -19,7 +19,7 @@
       <% end %>
     <% end %>
 
-    <li class="text-red-400 flex justify-center">
+    <li class="ml-1 text-red-400 flex justify-center">
       <% if @live.post.present? %>
         <%= link_to life_path(@live), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？※「みんなのリスト」への投稿も一緒に削除されます。" } do %>
           <i class="fa-solid fa-trash-can"></i>

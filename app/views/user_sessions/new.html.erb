@@ -1,7 +1,7 @@
 <div class="bg-gray-50 mx-auto px-4 py-6 min-h-screen">
   <div class="flex justify-center">
     <div class="shadow-lg ring-2 ring-sky-200 bg-sky-50 rounded-md w-full md:w-5/6 lg:w-3/5 flex fustify-center items-center flex-col">
-      <h1 class="font-light text-sky-500 text-3xl mt-8 text-center">ログイン</h1>
+      <h1 class="font-light text-sky-500 text-2xl mt-8 text-center">ログイン</h1>
 
       <%= form_with url: login_path, local: true, class: "space-y-2 mt-8 mb-16 mx-16 w-3/4 md:w-3/5 lg:w-3/5" do |f| %>
         <div class="form-group">
@@ -19,11 +19,16 @@
             <div class="ml-1 text-red-600">*</div><br>
           </div>
 
-          <%= f.password_field :password, class: "mt-1 py-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+          <%= f.password_field :password, class: "my-1 py-2 w-full rounded-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+        </div>
+
+        <div class="flex justify-center items-center text-sm text-gray-600">
+          <%= check_box_tag :remember, params[:remember], true %>
+          <%= label_tag :remember, t('activerecord.attributes.user.remember') %>
         </div>
 
         <div class="flex justify-center items-center">
-          <%= f.submit 'ログイン', class: "btn bg-sky-300 text-sky-700 text-sm font-light mt-12 hover:ring-2 ring-sky-300 hover:bg-sky-400" %>
+          <%= f.submit 'ログイン', class: "btn bg-sky-300 text-sky-700 text-sm font-light mt-1 hover:ring-2 ring-sky-300 hover:bg-sky-400" %>
         </div>
 
         <div class="text-center">

@@ -10,6 +10,7 @@ ja:
         id: 'ID'
         created_at: '作成日時'
         updated_at: '更新日時'
+        remember: 'ログインしたままにする(1ヶ月)'
       profile:
         name: 'ユーザー名'
         avatar: 'プロフィール画像'
